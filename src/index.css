@@ -2,5 +2,31 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #fef5ef; 
+  background-color: white;
+}
+
+div.navbar {
+  width: 100%;
+  height: 17vh;
+  background: #f6b68c;
+  color: white;
+  font: sans-serif;
+}
+
+a.active {
+  font: sans-serif;
+  font-weight: bold;
+  padding-top: 15px;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(85, 141, 177);
+}
+
+a:link {
+  font-size: 2em;
+  text-decoration: none;
+  font-weight: bold;
 }

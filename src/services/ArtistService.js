@@ -1,18 +1,17 @@
-const ArtistService = {
-  fetchArtists: () => {
-    debugger;
-    return fetch('/artists')
-      .then(response => response.json())
-  }
-}
-
-export default ArtistService;
-
-
-// .ajax({
-//   url: this.props.url,
-//   dataType: 'json',
-//   success: function (data) {
-//     this.setState({ data: data });
+// const API_URL = process.env.REACT_APP_API_URL;
+// console.log(API_URL);
+//
+//
+// const ArtistService = {
+//   fetchArtists() {
+//     // debugger;
+//      return fetch('${API_URL}/artists')
+//       .then(res => res.json())
+//       .then(responseJson => {
+//         console.log(responseJson);
+//       })
+//
 //   }
-// })
+// }
+//
+// export default ArtistService;

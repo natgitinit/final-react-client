@@ -7,23 +7,24 @@
 div.navbar {
   float: left;
   width: 100vw;
-  height: 10vh;
-  background: #644154;
+  height: 15vh;
+  background: #d35400;
   color: white;
   border-bottom: 3px solid white;
 }
 
-.sidebar {
-  float: left;
-  width: 30vw;
+.main-content {
+  float: center;
+  width: 100vw;
   height: 90vh;
-  background: #ccadc7 ;
+  background: cream;
+  color: black;
 }
 
-.main-content {
-  float: left;
-  width: 70vw;
-  height: 90vh;
-  background: lightyellow;
-  color: black;
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font: sans-serif;
+  background-color: #f39c12;
 }

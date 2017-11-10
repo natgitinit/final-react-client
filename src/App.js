@@ -1,41 +1,27 @@
 import React, { Component } from 'react';
-import Artists from './components/Artists';
-import ArtistService from './services/ArtistService'
-import './App.css';
+//add imports
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import Categories from './components/Categories'
+import About from './components/About'
 
-// let artists = [
-//   { name: 'Andy Warhol', id: 1 },
-//   { name: 'Jackson Pollock', id: 2}
-// ]
-
-class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      artists: []
-    }
-  }
-
-  //make API call
-  componentDidMount() {
-    ArtistService.fetchArtists().then(artists => this.setState({ artists }))
-  }
-
-
+export class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Router>
+        <div className="app">
         <div className="navbar">
-          {/*<Navbar />*/}
+            <NavBar />
+         </div>
+         <Route exact path="/" component={Home} />
+         <Route exact path="/about" component={About} />
+         <Route exact path="/categories" component={Categories} />
         </div>
-      <div className="sidebar">
-        <Artists artists={this.state.artists} />
-      </div>
-      <div className="main-content">
-        {/*<Artist />*/}
-      </div>
-      </div>
+      </Router>
     );
   }
 }
