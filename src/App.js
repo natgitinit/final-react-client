@@ -6,8 +6,10 @@ import {
 } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import Categories from './components/Categories'
-import About from './components/About'
+import Categories from './components/Categories';
+import About from './components/About';
+import NewsArticles from './components/NewsArticles';
+import LatestNews from './containers/LatestNews';
 
 export class App extends Component {
   render() {
@@ -20,6 +22,7 @@ export class App extends Component {
          <Route exact path="/" component={Home} />
          <Route exact path="/about" component={About} />
          <Route exact path="/categories" component={Categories} />
+         <LatestNews /> 
         </div>
       </Router>
     );
