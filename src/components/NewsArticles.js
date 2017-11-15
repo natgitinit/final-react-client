@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './components/Home';
+// import Home from './components/Home';
 
 const Article = ({
   title,
@@ -9,7 +9,7 @@ const Article = ({
   return (
     <div key={title} className="article">
       <header>
-        
+
 
         <span className="author">{byline}</span>
       </header>
