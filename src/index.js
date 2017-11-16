@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import './index.css';
+// import App from './App';
+//
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root')
+// );
 
 
 // import React from 'react';
@@ -23,15 +23,19 @@ ReactDOM.render(
 //   document.getElementById('root')
 // );
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-// import { Provider } from 'react-redux';
-// import { store } from './store.js';
-//
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById('root')
-// );
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/index';
+import {WrapperApp} from './App';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+ReactDOM.render(
+  <Provider store={store} >
+  <WrapperApp />
+  </Provider>, document.getElementById('root')
+)

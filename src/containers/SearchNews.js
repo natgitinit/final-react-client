@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-
-import NewsArticles from './components/NewsArticles';
+// import Home from '../components/Home';
+import NewsArticles from '../components/NewsArticles';
 
 const NYT_API_KEY = '88b8f68aa3304b9ea7f555bed50eeb87';
-const BASE_URL = 'https://api.nytimes.com/svc/topstories/v2/arts/search.json?'
-                 + `api-key=${NYT_API_KEY}&query=`;
+
+const BASE_URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + `api-key=${NYT_API_KEY}&query=`;
+
 
 class SearchNews extends Component {
   constructor() {
@@ -22,9 +23,15 @@ class SearchNews extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    fetch(BASE_URL.concat(this.state.searchTerm))
-      .then(res => res.json())
-      .then(res => this.setState({ reviews: res.results }));
+    fetch(BASE_URL.concat(this.state.searchTerm), {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      // crossDomain : true,
+    }).then(res => res.json())
+    .then(res => this.setState({ articles: res.results }));
   }
 
   render() {
@@ -39,7 +46,7 @@ class SearchNews extends Component {
             onChange={this.handleSearchInputChange} />
           <button type="submit">Submit</button>
         </form>
-        {this.state.articles.length > 0 && <h2>Movie Review By Search:</h2>}
+        {this.state.articles.length > 0 && <h2>Articles By Search:</h2>}
         <NewsArticles articles={this.state.articles} />
       </div>
     );

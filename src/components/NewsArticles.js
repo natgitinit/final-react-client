@@ -1,5 +1,5 @@
 import React from 'react';
-// import Home from './components/Home';
+import Home from '../components/Home';
 
 const Article = ({
   title,
@@ -9,8 +9,6 @@ const Article = ({
   return (
     <div key={title} className="article">
       <header>
-
-
         <span className="author">{byline}</span>
       </header>
       <blockquote>{abstract}</blockquote>
@@ -19,7 +17,6 @@ const Article = ({
 };
 
 
-//DUMB COMPONENTS
 
 const NewsArticles = ({ articles }) => <div className="article-list">{ articles.map(Article) }</div>
 

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-import NewsArticles from './components/NewsArticles';
+import NewsArticles from '../components/NewsArticles';
 
-const NYT_API_KEY = '88b8f68aa3304b9ea7f555bed50eeb87';
+// const NYT_API_KEY = '88b8f68aa3304b9ea7f555bed50eeb87';
+//
+// const URL = 'https://api.nytimes.com/svc/topstories/v2/technology.json?'
+//             + `api-key=${NYT_API_KEY}`;
 
-const URL = 'https://api.nytimes.com/svc/topstories/v2/arts.json?'
-            + `api-key=${NYT_API_KEY}`;
-
+// const API_URL = process.env.RAILS_API_URL;
 
 class LatestNews extends Component {
   constructor() {
