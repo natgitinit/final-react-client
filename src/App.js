@@ -34,7 +34,6 @@
 // export default App;
 
 import React, { Component } from 'react';
-import ArticleList from './articleList'
 import {
   BrowserRouter as Router,
   Route
@@ -46,17 +45,18 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Categories from './components/Categories';
 import About from './components/About';
-import LatestNews from './containers/LatestNews';
+// import LatestNews from './containers/LatestNews';
 import SearchNews from './containers/SearchNews';
 
 
 export class App extends Component {
 
   componentDidMount() {
-    if (this.props.articles.length === 0) {
-      console.log('in component did mount')
-      this.props.actions.fetchArticles()
-    }
+    console.log(this.props.actions.fetchedArticles());
+    // if (this.props.articles.length === 0) {
+    //   console.log('in component did mount')
+    //   this.props.actions.fetchArticles()
+    // }
   }
 
   render() {
@@ -72,9 +72,7 @@ export class App extends Component {
               <Route exact path="/articleegories" component={Categories} />
              </div>
           </Router>
-          <LatestNews />
           <SearchNews />
-        // <articleList articles={this.props.articles} />
       </div>
     );
   }

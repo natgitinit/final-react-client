@@ -21,7 +21,7 @@ class LatestNews extends Component {
   componentWillMount() {
     fetch(URL)
       .then(res => res.json())
-      .then(response => this.setState({ articles: response.results}));
+      .then(response => this.setState({ articles: response }));
   }
 
   render() {

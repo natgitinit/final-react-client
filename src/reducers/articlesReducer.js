@@ -1,7 +1,19 @@
-const articlesReducer = (state = {loading: false, articles: []}, action) => {
+const articlesReducer = (state = {
+  loading: false,
+  articles: []
+}, action) => {
+  
   switch (action.type) {
-    case 'FETCH_ARTICLES':
-      return {loading: false, articles: action.payload.data}
+    case 'FETCHING_ARTICLES':
+      return {
+        ...state,
+        isLoading: true
+      }
+    case 'FETCHED_ARTICLES':
+      return {
+        ...state,
+        articles: [...state.articles, action.payload]
+      }
     default:
       return state;
     }
