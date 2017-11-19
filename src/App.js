@@ -3,25 +3,25 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import {connect} from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as actions from './actions/articleActions.js'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Categories from './components/Categories';
 import About from './components/About';
-// import LatestNews from './containers/LatestNews';
-import SearchNews from './containers/SearchNews';
+import * as actions from './actions/articleActions.js';
+import ArticleList from './containers/ArticleList';
+// import SearchNews from './containers/SearchNews';
 
 
 export class App extends Component {
 
   componentDidMount() {
     console.log(this.props.actions.fetchedArticles());
-    // if (this.props.articles.length === 0) {
-    //   console.log('in component did mount')
-    //   this.props.actions.fetchArticles()
-    // }
+    if(this.props.articles) {
+      console.log("in component did mount");
+      this.props.actions.fetchArticles()
+    }
   }
 
   render() {
@@ -34,10 +34,10 @@ export class App extends Component {
               </div>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/articleegories" component={Categories} />
+              <Route exact path="/categories" component={Categories} />
              </div>
           </Router>
-          <SearchNews />
+          <ArticleList />
       </div>
     );
   }
@@ -51,5 +51,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators(actions, dispatch)}
 }
+
 
 export const WrapperApp = connect(mapStateToProps, mapDispatchToProps)(App)

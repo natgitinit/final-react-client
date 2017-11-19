@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import 'isomorphic-fetch';
-// import Home from '../components/Home';
 import NewsArticles from '../components/NewsArticles';
 
-const NYT_API_KEY = '88b8f68aa3304b9ea7f555bed50eeb87';
-
-const BASE_URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?" + `api-key=${NYT_API_KEY}&query=`;
-
+const BASE_URL = process.env.REACT_APP_NYT_SEARCH
+const API_KEY = process.env.REACT_APP_API_KEY
 
 class SearchNews extends Component {
   constructor() {
