@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import ArticleCard from '../components/ArticleCard';
 import { fetchedArticles } from '../actions/articleActions';
 
+const API_KEY = process.env.REACT_APP_API_KEY
+
+const URL = 'https://api.nytimes.com/svc/topstories/v2/arts.json?'
+            + `api-key=${API_KEY}`;
+
 // class ArticleList extends Component {
 //
 //   componentDidMount() {
@@ -41,6 +46,7 @@ class ArticleList extends Component {
   }
 
   componentWillMount() {
+    console.log(URL)
     fetch(URL)
       .then(res => res.json())
       .then(response => this.setState({ articles: response }));
