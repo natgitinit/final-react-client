@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Categories from './components/Categories';
 import About from './components/About';
+import ArticleCard from './components/ArticleCard';
 import * as actions from './actions/articleActions.js';
 import ArticleList from './containers/ArticleList';
 // import SearchNews from './containers/SearchNews';
@@ -37,7 +38,8 @@ export class App extends Component {
               <Route exact path="/categories" component={Categories} />
              </div>
           </Router>
-          <ArticleList />
+          {this.props.articles ?
+            <ArticleCard /> : null }
       </div>
     );
   }
@@ -45,6 +47,7 @@ export class App extends Component {
 
 function mapStateToProps(state) {
   console.log('in map state to props')
+  debugger; 
   return {articles: state.articles}
 }
 

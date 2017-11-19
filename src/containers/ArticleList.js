@@ -9,6 +9,37 @@ const API_KEY = process.env.REACT_APP_API_KEY
 const URL = 'https://api.nytimes.com/svc/topstories/v2/arts.json?'
             + `api-key=${API_KEY}`;
 
+
+class ArticleList extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      articles: []
+    };
+  }
+
+  componentWillMount() {
+    console.log(URL)
+    fetch(URL)
+      .then(res => res.json())
+      .then(response => this.setState({ articles: response }));
+  }
+
+  render() {
+    return (
+      <div className="latest-news">
+        <h2>The Latest News:</h2>
+        {this.props.articles ?
+          <ArticleCard /> : null }
+      </div>
+    );
+  }
+}
+
+
+export default ArticleList;
+
 // class ArticleList extends Component {
 //
 //   componentDidMount() {
@@ -34,33 +65,3 @@ const URL = 'https://api.nytimes.com/svc/topstories/v2/arts.json?'
 // }
 //
 // export default connect(mapStateToProps, { fetchedArticles })(ArticleList);
-
-
-class ArticleList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      articles: []
-    };
-  }
-
-  componentWillMount() {
-    console.log(URL)
-    fetch(URL)
-      .then(res => res.json())
-      .then(response => this.setState({ articles: response }));
-  }
-
-  render() {
-    return (
-      <div className="latest-news">
-        <h2>The Latest News:</h2>
-        <ArticleList articles={this.state.articles}/>
-      </div>
-    );
-  }
-}
-
-
-export default ArticleList;
