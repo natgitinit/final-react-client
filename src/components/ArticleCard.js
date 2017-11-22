@@ -45,31 +45,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(ArticleCard)
 
-//dumb component to list Articles
-// const Article = ({
-//   title,
-//   byline,
-//   abstract,
-//   image_url
-// }) => {
-//   return (
-//     <div key={title} className="article">
-//       <header>
-//         <span className="author">{byline}</span>
-//       </header>
-//       <blockquote>{abstract}</blockquote>
-//     </div>
-//   );
-// };
-//
-// const Articles = ({ articles }) => <div className="article-list">{ articles.map(Article) }</div>
-//
-// Articles.defaultProps = {
-//   articles: []
-// };
-//
-// export default ArticleCard;
-
 
 
 //dumb component #2

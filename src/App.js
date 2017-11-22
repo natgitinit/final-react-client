@@ -39,7 +39,7 @@ export class App extends Component {
 
 function mapStateToProps(state) {
   console.log('in map state to props')
-  // debugger;
+  debugger; 
   return {articles: state.articles}
 }
 

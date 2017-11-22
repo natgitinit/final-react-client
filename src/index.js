@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   createStore,
-  applyMiddleware,
-  compose
+  applyMiddleware
  } from 'redux';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
@@ -17,5 +16,3 @@ ReactDOM.render(
   <WrapperApp />
   </Provider>, document.getElementById('root')
 )
-
-export default compose(applyMiddleware(thunk))(createStore);

@@ -1,6 +1,6 @@
 const articlesReducer = (
   state = {
-    loading: false,
+    isLoading: false,
     articles: []
   }, action) => {
 

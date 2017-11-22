@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
 const API_KEY = process.env.REACT_APP_API_KEY
-// const BASE_URL = process.env.REACT_APP_API_URL
 
 
 export function fetchingArticles() {

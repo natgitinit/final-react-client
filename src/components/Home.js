@@ -6,8 +6,8 @@ const Home = () => {
 
     return (
       <div className="home">
-        <h1>The Latest News</h1>
-        <ArticleList />
+      <h1>Top Stories </h1>
+      <ArticleList />
       </div>
     );
   }
