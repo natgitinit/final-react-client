@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ArticleCard from '../components/ArticleCard';
 import { fetchedArticles } from '../actions/articleActions';
 
+
 const API_KEY = process.env.REACT_APP_API_KEY
 
 const URL = 'https://api.nytimes.com/svc/topstories/v2/arts.json?'
@@ -15,30 +16,56 @@ class ArticleList extends Component {
     super();
 
     this.state = {
-      articles: []
+      articles: [],
+      hasError: false,
+      loading: false
     };
   }
 
-  componentWillMount() {
-    console.log(URL)
-    fetch(URL)
-      .then(res => res.json())
-      .then(response => this.setState({ articles: response }));
-  }
+  // componentDidMount() {
+  //   console.log(this.props.actions.fetchedArticles());
+  //   if(this.props.articles) {
+  //     console.log("in component did mount");
+  //     this.props.actions.fetchArticles()
+  //   }
+  // }
+    componentWillMount() {
+      console.log("component will mount")
+      // debugger;
+      // this.props.fetchedArticles()
+    }
 
   render() {
+    if (this.state.hasErrored) {
+      return <p>Sorry! There was an error loading articles.</p>;
+    }
+
+    if (this.state.isLoading) {
+      return <p>Loading...</p>;
+    }
+
     return (
       <div className="latest-news">
-        <h2>The Latest News:</h2>
-        {this.props.articles ?
-          <ArticleCard /> : null }
+        <h2>Articles:</h2>
+          { this.state.articles.map((article) => (
+            <li key={article.id}>
+                    {article.title}
+            </li>
+          ))}
       </div>
     );
   }
 }
 
 
-export default ArticleList;
+const mapStateToProps = (state) => {
+  return {
+    articles: state.articles
+  }
+}
+
+
+export default connect(mapStateToProps, { fetchedArticles})(ArticleList);
 
 // class ArticleList extends Component {
 //

@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 const API_KEY = process.env.REACT_APP_API_KEY
-// const NYT_API_URL = process.env.REACT_APP_NYT_URL;
+// const BASE_URL = process.env.REACT_APP_API_URL
 
 
 export function fetchingArticles() {
@@ -10,7 +10,7 @@ export function fetchingArticles() {
   }
 }
 
-export function fetchedArticles() {
+export function fetchedArticles(sourceName) {
   return (dispatch) => {
     fetch(`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${API_KEY}`)
     .then(resp => resp.json())

@@ -17,14 +17,6 @@ import ArticleList from './containers/ArticleList';
 
 export class App extends Component {
 
-  componentDidMount() {
-    console.log(this.props.actions.fetchedArticles());
-    if(this.props.articles) {
-      console.log("in component did mount");
-      this.props.actions.fetchArticles()
-    }
-  }
-
   render() {
     return (
       <div className="App">
@@ -47,12 +39,12 @@ export class App extends Component {
 
 function mapStateToProps(state) {
   console.log('in map state to props')
-  debugger; 
+  // debugger;
   return {articles: state.articles}
 }
 
 function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(actions, dispatch)}
+  return { actions: bindActionCreators(actions, dispatch)}
 }
 
 

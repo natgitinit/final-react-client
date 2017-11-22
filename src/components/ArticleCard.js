@@ -7,8 +7,8 @@ class ArticleCard extends Component {
 
 
   generateArticleCards = () => {
-    return this.props.articles.map((article) => {
-      return article.articles.map((article) => {
+    return this.props.articles.map((source) => {
+      return source.articles.map((article) => {
         return (
           <Card className="articleCard">
             <Image className="articlesImage" src={article.image_url}/>
@@ -39,7 +39,7 @@ class ArticleCard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.news.articles
+    articles: state.articlesReducer
   }
 }
 

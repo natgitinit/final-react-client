@@ -1,30 +1,26 @@
-const articlesReducer = (state = {
-  loading: false,
-  articles: [],
-  images: []
-}, action) => {
+const articlesReducer = (
+  state = {
+    loading: false,
+    articles: []
+  }, action) => {
 
-  switch (action.type) {
-    case 'FETCHING_ARTICLES':
-      return {
-        ...state,
-        isLoading: true
-      }
-      
-    case 'FETCHED_IMAGES':
-    return {
-      ...state,
-      images: action.payload
-    }
+    switch (action.type) {
+      case 'FETCHING_ARTICLES':
+        return {
+          ...state,
+          isLoading: true
+        }
 
-    case 'FETCHED_ARTICLES':
-      return {
-        ...state,
-        articles: [...state.articles, action.payload]
+      case 'FETCHED_ARTICLES':
+        return {
+          ...state,
+          articles: [...state.articles, action.payload]
+        }
+      default:
+        return state;
       }
-    default:
-      return state;
-    }
+
+
 };
 
 export default articlesReducer;
