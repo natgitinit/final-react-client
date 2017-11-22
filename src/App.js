@@ -39,8 +39,8 @@ export class App extends Component {
 
 function mapStateToProps(state) {
   console.log('in map state to props')
-  debugger; 
-  return {articles: state.articles}
+  // debugger;
+  return {articles: state}
 }
 
 function mapDispatchToProps(dispatch) {
