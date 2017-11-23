@@ -7,25 +7,24 @@ class ArticleCard extends Component {
 
 
   generateArticleCards = () => {
+    // debugger;
     return this.props.articles.map((source) => {
-      return source.articles.map((article) => {
         return (
           <Card className="articleCard">
-            <Image className="articlesImage" src={article.image_url}/>
+            <Image className="articlesImage" src={source.url}/>
             <Card.Content>
             <Card.Header>
-              <Link className="articleLink" to={article.url}>{article.title}</Link>
+              <Link className="sourceLink" to={source.url}>{source.title}</Link>
             </Card.Header>
             <Card.Meta>
-              <div>Author: {article.byline}</div>
+              <div>Author: {source.byline}</div>
             </Card.Meta>
             <Card.Abstract>
-              {article.abstract}
+              {source.abstract}
             </Card.Abstract>
             </Card.Content>
           </Card>
         )
-      })
     })
   }
   render() {
@@ -37,9 +36,10 @@ class ArticleCard extends Component {
   }
 }
 
+
 const mapStateToProps = (state) => {
   return {
-    articles: state.articlesReducer
+    articles: state.articlesReducer.articles
   }
 }
 
@@ -49,7 +49,7 @@ export default connect(mapStateToProps)(ArticleCard)
 
 //dumb component #2
 // const ArticleCard = ({ article }) => (
-//   <div key={article.id} className="ArticleCard">
+//   <div className="ArticleCard">
 //     <h3>{article.title}</h3>
 //     <p>${article.abstract}</p>
 //     <img className="ArticleImage" src={article.img_url} alt={article.title} />

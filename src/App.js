@@ -28,6 +28,8 @@ export class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/categories" component={Categories} />
+              
+
              </div>
           </Router>
           {this.props.articles ?

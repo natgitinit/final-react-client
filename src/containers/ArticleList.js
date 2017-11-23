@@ -1,60 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Grid, Segment } from 'semantic-ui-react';
 
 import ArticleCard from '../components/ArticleCard';
 import { bindActionCreators } from 'redux';
 import { fetchedArticles } from '../actions/articleActions';
 
 
-const API_KEY = process.env.REACT_APP_API_KEY
-
-const URL = 'https://api.nytimes.com/svc/topstories/v2/arts.json?'
-            + `api-key=${API_KEY}`;
-
 
 class ArticleList extends Component {
-  constructor() {
-    super();
 
-    this.state = {
-      articles: [],
-      hasError: false,
-      isLoading: false
-    };
-  }
 
     componentDidMount() {
       console.log("component did mount")
-      // debugger;
       this.props.fetchedArticles()
     }
 
   render() {
-    if (this.state.hasErrored) {
-      return <p>Sorry! There was an error loading articles.</p>;
-    }
-
-    if (this.state.isLoading) {
-      return <p>Loading...</p>;
-    }
-
     return (
-      <div className="latest-news">
-        <h2>Articles:</h2>
-            { this.props.articles.map((article) => {
-              return (
-            <li key= {article.id}>
-                    {article.title}
-            </li>
-          )})}
-      </div>
+        <div classNam="art-stories">
+          {this.props.articles.map((article) => {
+            return (
+              <div>
+                <h2>  <a className="article-link" href={article.url}>
+                     {article.title}
+                </a></h2>
+                <h4> {article.abstract} </h4>
+              </div>
+            )
+          })}
+        </div>
     );
   }
 }
 
 
 const mapStateToProps = (state) => {
-  // debugger;
   return {
     articles: state.articlesReducer.articles
   }
