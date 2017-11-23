@@ -40,7 +40,7 @@ export class App extends Component {
 function mapStateToProps(state) {
   console.log('in map state to props')
   // debugger;
-  return {articles: state}
+  return {articles: state.articles}
 }
 
 function mapDispatchToProps(dispatch) {

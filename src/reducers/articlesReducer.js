@@ -14,7 +14,7 @@ const articlesReducer = (
       case 'FETCHED_ARTICLES':
         return {
           ...state,
-          articles: [...state.articles, action.payload]
+          articles: [...state.articles, ...action.payload.results]
         }
       default:
         return state;

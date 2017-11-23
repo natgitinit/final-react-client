@@ -8,8 +8,16 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/index';
 import {WrapperApp} from './App';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(rootReducer, applyMiddleware(thunk)+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const composeEnhancers = composeWithDevTools({});
+const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+  applyMiddleware(thunk),
+));
+
+
+// const store = createStore(rootReducer, applyMiddleware(thunk)
+//               +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <Provider store={store} >

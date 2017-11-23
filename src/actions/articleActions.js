@@ -9,10 +9,11 @@ export function fetchingArticles() {
   }
 }
 
-export function fetchedArticles(sourceName) {
+export function fetchedArticles() {
   return (dispatch) => {
-    fetch(`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${API_KEY}`)
+    return fetch(`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${API_KEY}`)
     .then(resp => resp.json())
+    // .then(resp => { debugger })
     .then(jsonObject => {
       dispatch({
         type: 'FETCHED_ARTICLES',
