@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Segment } from 'semantic-ui-react';
+// import { Grid, Segment } from 'semantic-ui-react';
 
 import ArticleCard from '../components/ArticleCard';
 import { bindActionCreators } from 'redux';
@@ -17,19 +17,15 @@ class ArticleList extends Component {
     }
 
   render() {
+    // debugger;
     return (
-        <div classNam="art-stories">
-          {this.props.articles.map((article) => {
-            return (
-              <div>
-                <h2>  <a className="article-link" href={article.url}>
-                     {article.title}
-                </a></h2>
-                <h4> {article.abstract} </h4>
-              </div>
-            )
-          })}
-        </div>
+      <div classNam="art-stories">
+        {this.props.articles.map((article) => {
+          return (
+            <ArticleCard />
+          )
+        })}
+      </div>
     );
   }
 }

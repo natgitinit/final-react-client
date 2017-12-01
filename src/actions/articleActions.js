@@ -23,7 +23,26 @@ export function fetchedArticles() {
   }
 }
 
-//ASYNC ACTIONS
+
+// Add image_url attribute
+     // articles.map(article => {
+     //   let imgObj = article.multimedia.find(media => media.format === "superJumbo");
+     //   article.image_url = imgObj ? imgObj.url : "http://placehold.it/300x200?text=N/A";
+     // });
+
+// export function fetchImages() {
+//   return {
+//     type: 'FETCH_IMAGES'
+//   }
+// }
+//
+// export function fetchedImages() {
+//   return (dispatch) => {
+//     return fetch()
+//   }
+// }
+
+//RAILS API
 
 // export const getArticles = () => {
 //   return dispatch => {

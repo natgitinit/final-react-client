@@ -19,9 +19,9 @@ class ArticleCard extends Component {
             <Card.Meta>
               <div>Author: {source.byline}</div>
             </Card.Meta>
-            <Card.Abstract>
-              {source.abstract}
-            </Card.Abstract>
+            <Card.Description> 
+            {source.abstract}
+            </Card.Description>
             </Card.Content>
           </Card>
         )
