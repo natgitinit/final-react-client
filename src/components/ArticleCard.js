@@ -11,14 +11,14 @@ class ArticleCard extends Component {
     return this.props.articles.map((article) => {
         return (
           <Card className="articleCard">
-          <a href={article.url} class="ui medium image">
-            <img src="//placehold.it/300/2255EE"/>
+          <a href={article.url} target="_blank" class="ui medium image">
+            <img src="//placehold.it/300/8b0000"/>
           </a>
             <Card.Content>
             <Card.Header>
               <div className="title">
                 <h3>{article.title}</h3>
-              </div> 
+              </div>
             </Card.Header>
             <Card.Meta>
               <div>Author: {article.byline}</div>
