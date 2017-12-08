@@ -8,22 +8,27 @@ class ArticleCard extends Component {
 
   generateArticleCards = () => {
     // debugger;
-    return this.props.articles.map((source) => {
+    return this.props.articles.map((article) => {
         return (
           <Card className="articleCard">
-            <Image className="articlesImage" src={source.url}/>
+          <a href={article.url} class="ui medium image">
+            <img src="//placehold.it/300/2255EE"/>
+          </a>
             <Card.Content>
             <Card.Header>
-              <Link className="sourceLink" to={source.url}>{source.title}</Link>
+              <div className="title">
+                <h3>{article.title}</h3>
+              </div> 
             </Card.Header>
             <Card.Meta>
-              <div>Author: {source.byline}</div>
+              <div>Author: {article.byline}</div>
             </Card.Meta>
-            <Card.Description> 
-            {source.abstract}
+            <Card.Description>
+            {article.abstract}
             </Card.Description>
             </Card.Content>
           </Card>
+
         )
     })
   }
@@ -44,17 +49,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(ArticleCard)
-
-
-
-//dumb component #2
-// const ArticleCard = ({ article }) => (
-//   <div className="ArticleCard">
-//     <h3>{article.title}</h3>
-//     <p>${article.abstract}</p>
-//     <img className="ArticleImage" src={article.img_url} alt={article.title} />
-//     <p>By: {article.byline}</p>
-//   </div>
-// )
-//
-// export default ArticleCard;

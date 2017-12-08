@@ -1,7 +1,8 @@
 const articlesReducer = (
   state = {
     isLoading: false,
-    articles: []
+    articles: [],
+    images: []
   }, action) => {
 
     switch (action.type) {
@@ -18,7 +19,16 @@ const articlesReducer = (
         }
       default:
         return state;
+
+      case 'FETCHED_IMAGES':
+        return {
+          ...state,
+          images: action.payload
+        }
+        
       }
+
+
 
 
 };
