@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class ArticleCard extends Component {
 
 
   generateArticleCards = () => {
-    // debugger;
+
     return this.props.articles.map((article) => {
         return (
           <Card className="articleCard">
@@ -43,19 +43,10 @@ class ArticleCard extends Component {
 
 
 const mapStateToProps = (state) => {
+  // debugger;
   return {
     articles: state.articlesReducer.articles
   }
 }
 
 export default connect(mapStateToProps)(ArticleCard)
-
-// Add image_url attribute
-     // articles.map(article => {
-     //   let imgObj = article.multimedia.find(media => media.format === "medium");
-     //   article.image_url = imgObj ? imgObj.url : "http://placehold.it/300x200?text=N/A";
-     // });
-
-     // <a href={article.url} target="_blank" class="ui medium image">
-     //   <img src="//placehold.it/321/8b0000"/>
-     // </a>

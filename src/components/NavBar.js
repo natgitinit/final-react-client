@@ -1,20 +1,22 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import { Menu, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div class="ui pointing menu">
-      <a class="active item">
-        <NavLink to="/"> Home </NavLink>
-      </a>
-      <a class="item">
-        <NavLink to="/about"> About </NavLink>
-      </a>
-      <a class="item">
-        <NavLink to="/categories"> Categories </NavLink>
-      </a>
-    </div>
+    <Menu>
+      <Menu.Item header> ARTicles</Menu.Item>
+      <Menu.Item as={Link} to='/'>
+        <Icon name="home"/>
+      </Menu.Item>
+      <Menu.Menu position='right'>
+      <Menu.Item as={Link} to='/about' name='About'>
+      </Menu.Item>
+
+      <Menu.Item as={Link} to='/categories' name='Search'>
+      </Menu.Item>
+      </Menu.Menu>
+    </Menu>
   );
 };
 

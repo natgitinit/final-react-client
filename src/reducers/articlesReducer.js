@@ -20,12 +20,12 @@ const articlesReducer = (
       default:
         return state;
 
-      case 'FETCHED_IMAGES':
-        return {
-          ...state,
-          images: action.payload
-        }
-        
+      // case 'FETCHED_IMAGES':
+      //   return {
+      //     ...state,
+      //     images: action.payload
+      //   }
+
       }
 
 

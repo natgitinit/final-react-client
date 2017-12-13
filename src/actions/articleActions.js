@@ -36,26 +36,3 @@ export function fetchedImages() {
     })
   }
 }
-
-
-
-
-// export function fetchImages() {
-//   return {
-//     type: 'FETCH_IMAGES'
-//   }
-// }
-//
-// export function fetchedImages() {
-//   return (dispatch) => {
-//     return fetch()
-//   }
-// }
-
-//RAILS API
-
-// export const getArticles = () => {
-//   return dispatch => {
-//     return fetch(`${NYT_API_URL}/articles`)
-//   }
-// }

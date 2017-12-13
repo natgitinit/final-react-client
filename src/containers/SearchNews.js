@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import 'isomorphic-fetch';
-import NewsArticles from '../components/NewsArticles';
+import ArticleList from '../containers/ArticleList';
 
 const BASE_URL = process.env.REACT_APP_NYT_SEARCH
 const API_KEY = process.env.REACT_APP_API_KEY
@@ -20,22 +19,17 @@ class SearchNews extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    fetch(BASE_URL.concat(this.state.searchTerm), {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      // crossDomain : true,
-    }).then(res => res.json())
-    .then(res => this.setState({ articles: res.results }));
-  }
+  fetch(BASE_URL.concat(this.state.searchTerm))
+  .then(res => res.json())
+  .then(res => this.setState({ reviews: res.results }));
+}
+
 
   render() {
     return (
-      <div className="searchable-art-articles">
+      <div className="searchable-articles">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='search-input'>Search Art News</label>
+          <label htmlFor='search-input'>Search News</label>
           <input
             id='search-input'
             type="text"
@@ -44,7 +38,6 @@ class SearchNews extends Component {
           <button type="submit">Submit</button>
         </form>
         {this.state.articles.length > 0 && <h2>Articles By Search:</h2>}
-        <NewsArticles articles={this.state.articles} />
       </div>
     );
   }

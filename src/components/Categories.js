@@ -1,17 +1,15 @@
 import React from 'react';
+import SearchNews from '../containers/SearchNews';
 
 const Categories = () => {
   return (
     <div>
-      <h1>Categories</h1>
+      <h1>By Category </h1>
       <div class="right menu">
         <div class="item">
-          <div class="ui transparent icon input">
-            <input type="text" placeholder="Search..."/>
-          <i class="search link icon"></i>
-          </div>
+          <SearchNews />
         </div>
-      </div>
+     </div>
     </div>
   );
 };

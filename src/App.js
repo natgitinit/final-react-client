@@ -12,7 +12,7 @@ import About from './components/About';
 import ArticleCard from './components/ArticleCard';
 import * as actions from './actions/articleActions.js';
 import ArticleList from './containers/ArticleList';
-// import SearchNews from './containers/SearchNews';
+import SearchNews from './containers/SearchNews';
 
 
 export class App extends Component {
