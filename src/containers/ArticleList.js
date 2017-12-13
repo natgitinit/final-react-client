@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Grid, Segment } from 'semantic-ui-react';
-
 import ArticleCard from '../components/ArticleCard';
 import { bindActionCreators } from 'redux';
 import { fetchedArticles } from '../actions/articleActions';

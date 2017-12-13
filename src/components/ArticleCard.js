@@ -12,7 +12,7 @@ class ArticleCard extends Component {
         return (
           <Card className="articleCard">
           <a href={article.url} target="_blank" class="ui medium image">
-            <img src="//placehold.it/300/8b0000"/>
+            <img src="//placehold.it/321/8b0000"/>
           </a>
             <Card.Content>
             <Card.Header>
@@ -49,3 +49,13 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(ArticleCard)
+
+// Add image_url attribute
+     // articles.map(article => {
+     //   let imgObj = article.multimedia.find(media => media.format === "medium");
+     //   article.image_url = imgObj ? imgObj.url : "http://placehold.it/300x200?text=N/A";
+     // });
+
+     // <a href={article.url} target="_blank" class="ui medium image">
+     //   <img src="//placehold.it/321/8b0000"/>
+     // </a>
