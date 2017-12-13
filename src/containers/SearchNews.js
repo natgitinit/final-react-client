@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import ArticleList from '../containers/ArticleList';
 
-const BASE_URL = process.env.REACT_APP_NYT_SEARCH
-const API_KEY = process.env.REACT_APP_API_KEY
+// const BASE_URL = process.env.REACT_APP_NYT_SEARCH
+const BASE_URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
+                 + `api-key=${NYT_API_KEY}&query=`;
+
+const NYT_API_KEY = process.env.REACT_APP_API_KEY
 
 class SearchNews extends Component {
   constructor() {
@@ -33,7 +36,7 @@ class SearchNews extends Component {
           <input
             id='search-input'
             type="text"
-            style={{width: 300}}
+            style={{width: 250}}
             onChange={this.handleSearchInputChange} />
           <button type="submit">Submit</button>
         </form>
