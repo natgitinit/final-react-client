@@ -10,7 +10,7 @@ const NavBar = () => {
         <Icon name="home"/>
       </Menu.Item>
       <Menu.Menu position='right'>
-      <Menu.Item as={Link} to='/about' name='About'>
+      <Menu.Item as={Link} to='/saved' name='Saved'>
       </Menu.Item>
 
       <Menu.Item as={Link} to='/categories' name='Search'>

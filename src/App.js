@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Categories from './components/Categories';
-import About from './components/About';
+import Saved from './components/Saved';
 import ArticleCard from './components/ArticleCard';
 import * as actions from './actions/articleActions.js';
 import ArticleList from './containers/ArticleList';
@@ -26,7 +26,7 @@ export class App extends Component {
                  <NavBar />
               </div>
               <Route exact path="/" component={Home} />
-              <Route exact path="/about" component={About} />
+              <Route exact path="/saved" component={Saved} />
               <Route exact path="/categories" component={Categories} />
 
 

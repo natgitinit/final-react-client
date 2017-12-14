@@ -24,15 +24,30 @@ export function fetchedArticles() {
   }
 }
 
-export function fetchedImages() {
-  return function(dispatch) {
-    fetch(`${BASE_URL}/articles`)
+export function saveArticle() {
+  return {
+    type: 'SAVING_ARTICLE'
+  }
+}
+
+export function savedArticles() {
+  return (dispatch) => {
+    return fetch(`${BASE_URL}/articles`)
     .then(resp => resp.json())
     .then(jsonObject => {
       dispatch({
-        type: 'FETCHED_IMAGES',
+        type: 'SAVE_ARTICLE',
         payload: jsonObject
       })
     })
   }
 }
+
+// export function deleteSaved() {
+//   return(dispatch) => {
+//     return fetch(`${BASE_URL}/articles/${article.id}`), {
+//       method: 'DELETE'
+//     };
+//     //catch error
+//   }
+// }

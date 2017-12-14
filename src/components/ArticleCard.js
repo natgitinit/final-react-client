@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
+
 class ArticleCard extends Component {
 
 
   generateArticleCards = () => {
 
     return this.props.articles.map((article) => {
-      // debugger;
+      // article.multimedia.map((img) => {
+        // debugger;
         return (
           <Card className="articleCard">
           <a href={article.url} target="_blank" class="ui medium image">
-
             <img src={ article.multimedia[3] }/>
           </a>
 
@@ -29,9 +30,11 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
+            <button className="ui teal button" >Save</button>
           </Card>
 
         )
+      // }) //multimedia map end
     })
   }
   render() {
