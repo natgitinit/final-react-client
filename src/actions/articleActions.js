@@ -26,7 +26,7 @@ export function fetchedArticles() {
 
 export function fetchedImages() {
   return function(dispatch) {
-    fetch(`${BASE_URL}/images`)
+    fetch(`${BASE_URL}/articles`)
     .then(resp => resp.json())
     .then(jsonObject => {
       dispatch({

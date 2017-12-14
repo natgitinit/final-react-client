@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 
 class ArticleCard extends Component {
 
@@ -9,11 +8,14 @@ class ArticleCard extends Component {
   generateArticleCards = () => {
 
     return this.props.articles.map((article) => {
+      // debugger;
         return (
           <Card className="articleCard">
           <a href={article.url} target="_blank" class="ui medium image">
-            <img src="//placehold.it/321/8b0000"/>
+
+            <img src={ article.multimedia[3] }/>
           </a>
+
             <Card.Content>
             <Card.Header>
               <div className="title">
@@ -33,6 +35,7 @@ class ArticleCard extends Component {
     })
   }
   render() {
+
     return (
       <Card.Group itemsPerRow={3} size='medium'>
         {this.generateArticleCards()}
@@ -43,7 +46,6 @@ class ArticleCard extends Component {
 
 
 const mapStateToProps = (state) => {
-  // debugger;
   return {
     articles: state.articlesReducer.articles
   }

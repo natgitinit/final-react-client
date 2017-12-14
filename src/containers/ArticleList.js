@@ -15,7 +15,6 @@ class ArticleList extends Component {
     }
 
   render() {
-    // debugger;
     return (
       <div classNam="art-stories">
         {this.props.articles.map((article) => {

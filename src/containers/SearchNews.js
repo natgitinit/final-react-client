@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ArticleList from '../containers/ArticleList';
 
 // const BASE_URL = process.env.REACT_APP_NYT_SEARCH
-const BASE_URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
+const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?'
                  + `api-key=${NYT_API_KEY}&query=`;
 
 const NYT_API_KEY = process.env.REACT_APP_API_KEY
@@ -21,10 +21,9 @@ class SearchNews extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
   fetch(BASE_URL.concat(this.state.searchTerm))
-  .then(res => res.json())
-  .then(res => this.setState({ reviews: res.results }));
+  .then(res => { debugger })
+  .then(res => this.setState({ articles: res.results }));
 }
 
 
