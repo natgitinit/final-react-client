@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Card, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 
 class ArticleCard extends Component {
-
 
   generateArticleCards = () => {
 
@@ -13,9 +12,6 @@ class ArticleCard extends Component {
         // debugger;
         return (
           <Card className="articleCard">
-          <a href={article.url} target="_blank" class="ui medium image">
-            <img src={ article.multimedia[3] }/>
-          </a>
 
             <Card.Content>
             <Card.Header>
@@ -30,7 +26,8 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
-            <button className="ui teal button" >Save</button>
+            <button className="ui teal button" save={this.handleClick}>Save</button>
+
           </Card>
 
         )
@@ -54,4 +51,10 @@ const mapStateToProps = (state) => {
   }
 }
 
+
+
 export default connect(mapStateToProps)(ArticleCard)
+
+// <a href={article.url} target="_blank" class="ui medium image">
+//   <img src={ article.multimedia[3] }/>
+// </a>

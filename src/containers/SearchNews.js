@@ -1,30 +1,24 @@
 import React, { Component } from 'react';
-import ArticleList from '../containers/ArticleList';
+// import ArticleList from '../containers/ArticleList';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/searchActions';
 
-// const BASE_URL = process.env.REACT_APP_NYT_SEARCH
-const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?'
-                 + `api-key=${NYT_API_KEY}&query=`;
+  class SearchNews extends Component {
+    state = {
+      input: ''
+    }
 
-const NYT_API_KEY = process.env.REACT_APP_API_KEY
+      handleSubmit = event => {
+        event.preventDefault();
+        console.log(this)
+        this.props.searchQuery(this.state.input)
+        this.setState({
+          input: ''
+        })
+    }
 
-class SearchNews extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      searchTerm: '',
-      articles: []
-    };
-  }
-
-  handleSearchInputChange = event => this.setState({ searchTerm: event.target.value });
-
-  handleSubmit = event => {
-    event.preventDefault();
-  fetch(BASE_URL.concat(this.state.searchTerm))
-  .then(res => { debugger })
-  .then(res => this.setState({ articles: res.results }));
-}
+    handleSearchInputChange = event => this.setState({ searchTerm: event.target.value });
 
 
   render() {
@@ -39,10 +33,17 @@ class SearchNews extends Component {
             onChange={this.handleSearchInputChange} />
           <button type="submit">Submit</button>
         </form>
-        {this.state.articles.length > 0 && <h2>Articles By Search:</h2>}
       </div>
     );
   }
 }
 
-export default SearchNews;
+const mapDispatchToProps = dispatch => {
+  console.log('map dispatch to props')
+  return bindActionCreators(actions, dispatch)
+}
+
+
+export default connect(null, mapDispatchToProps)(SearchNews);
+
+// {this.state.articles.length > 0 && <h2>Articles By Search:</h2>}

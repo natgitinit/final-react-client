@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
 const API_KEY = process.env.REACT_APP_API_KEY
-const BASE_URL = process.env.REACT_APP_API_URL
 
 
 export function fetchingArticles() {
@@ -23,31 +22,3 @@ export function fetchedArticles() {
     })
   }
 }
-
-export function saveArticle() {
-  return {
-    type: 'SAVING_ARTICLE'
-  }
-}
-
-export function savedArticles() {
-  return (dispatch) => {
-    return fetch(`${BASE_URL}/articles`)
-    .then(resp => resp.json())
-    .then(jsonObject => {
-      dispatch({
-        type: 'SAVE_ARTICLE',
-        payload: jsonObject
-      })
-    })
-  }
-}
-
-// export function deleteSaved() {
-//   return(dispatch) => {
-//     return fetch(`${BASE_URL}/articles/${article.id}`), {
-//       method: 'DELETE'
-//     };
-//     //catch error
-//   }
-// }

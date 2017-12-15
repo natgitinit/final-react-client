@@ -1,8 +1,7 @@
 const articlesReducer = (
   state = {
     isLoading: false,
-    articles: [],
-    savedArticles: []
+    articles: []
   }, action) => {
 
     switch (action.type) {
@@ -24,7 +23,7 @@ const articlesReducer = (
             savedArticles: [...state.articles, ...action.payload ]
           }
 
-        // case 'DELETE_SAVED': 
+        // case 'DELETE_SAVED':
         //   const newState = Object.assign([], state);
         //   const indexOfArticle = state.findIndex(article => {
         //     return article.id == action.article.id
