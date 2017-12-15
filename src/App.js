@@ -11,6 +11,7 @@ import Search from './components/Search';
 import Saved from './components/Saved';
 import ArticleCard from './components/ArticleCard';
 import * as actions from './actions/articleActions.js';
+// import ArticleList from './containers/ArticleList';
 
 
 export class App extends Component {

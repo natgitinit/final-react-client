@@ -15,7 +15,7 @@ export function saveReducer(
         return {
           ...state,
           fetching: false,
-           savedArticles:action.payload
+           savedArticles: [...state.savedArticles, ...action.payload.results]
          }
 
       case 'DELETING_ARTICLE':

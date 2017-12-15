@@ -1,21 +1,21 @@
 import React from 'react'
-// import ArticleList from './containers/ArticleList'
 import Saved from './components/Saved';
-import SavedArticles from '../actions/saveActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { savedArticle } from '../actions/saveActions';
 
-const SavedArticles = (props) => {
+
+class SavedArticles extends Component {
+// const SavedArticles = (props) => {
   console.log(props)
 
-  componentDidMount() {
-    console.log("component did mount")
-    this.props.savedArticle()
-  }
+  const allArticles = props.savedArticle.map((article, index) =>
+  <Article key={index} article={article}/> )
 
-  const allArticles = props.savedArticle.map((article, index) => <Article key={index} article={article}/>)
       return(
-        <div className="reading-list">
+        <div className="saved-list">
           <div className="ui cards">
-          <Saved />
+            <Saved />
             {allArticles}
           </div>
         </div>
@@ -26,8 +26,14 @@ const SavedArticles = (props) => {
 
   const mapStateToProps = (state) => {
     return {
-      articles: state.articlesReducer.articles
+      articles: state.saveReducer.savedArticles
     }
   }
 
-  export default SavedArticles
+  function mapDispatchToProps(dispatch) {
+    return {
+      savedArticle: bindActionCreators(savedArticle, dispatch)
+    }
+  }
+
+  export default connect(mapStateToProps, mapDispatchToProps)(SavedArticles);

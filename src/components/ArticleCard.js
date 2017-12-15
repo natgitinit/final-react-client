@@ -12,6 +12,9 @@ class ArticleCard extends Component {
         // debugger;
         return (
           <Card className="articleCard">
+          <a href={article.url} target="_blank" class="ui medium image">
+            <img src={ article.multimedia[3] }/>
+          </a>
 
             <Card.Content>
             <Card.Header>
@@ -26,8 +29,7 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
-            <button className="ui teal button" save={this.handleClick}>Save</button>
-
+            <button className="ui teal button" onClick={this.handleClick}>Save</button>
           </Card>
 
         )
