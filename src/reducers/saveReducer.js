@@ -1,22 +1,29 @@
-export function saveReducer(
+const saveReducer = (
   state = {
     fetching: false,
-    savedArticles:[]
-  }, action) {
+    savedArticles:[],
+    error: null
+  }, action) => {
 
     switch (action.type) {
-      case 'SAVING_ARTICLE':
+      case 'SAVE_ARTICLE_PENDING':
         return {
           ...state,
           fetching: true
         }
 
-      case 'SAVED_ARTICLE':
+      case 'SAVE_IMAGE_FUFILLED':
         return {
           ...state,
           fetching: false,
            savedArticles: [...state.savedArticles, ...action.payload.results]
          }
+       case 'SAVE_ARTICLE_REJECTED':
+        return {
+          ...state,
+          fetching: false,
+          error: action.payload
+        }
 
       case 'DELETING_ARTICLE':
         return {

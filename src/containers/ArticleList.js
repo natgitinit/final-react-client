@@ -3,17 +3,16 @@ import { connect } from 'react-redux';
 import ArticleCard from '../components/ArticleCard';
 import { bindActionCreators } from 'redux';
 import { fetchedArticles } from '../actions/articleActions';
-// import { savedArticle } from '../actions/saveActions';
+import { savedArticle } from '../actions/saveActions';
+import Saved from '../components/Saved';
 
 
 
 class ArticleList extends Component {
 
-    handleClick = params => {
-     this.props.savedArticle(params)
-     this.handleClick = this.handleClick.bind(this);
-
-   }
+    // handleClick = params => {
+    //   this.props.save(params)
+    // }
 
     componentDidMount() {
       console.log("component did mount")
@@ -27,7 +26,7 @@ class ArticleList extends Component {
           return (
             <div>
             <ArticleCard />
-
+        
             </div>
           )
         })}
@@ -45,7 +44,8 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchedArticles: bindActionCreators(fetchedArticles, dispatch)
+      fetchedArticles: bindActionCreators(fetchedArticles, dispatch),
+      savedArticle: bindActionCreators(savedArticle, dispatch)
   }
 }
 

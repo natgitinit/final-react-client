@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-
+import Saved from '../components/Saved';
 
 class ArticleCard extends Component {
 
@@ -29,9 +29,9 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
-            <button className="ui teal button" onClick={this.handleClick}>Save</button>
+            <Saved
+              save={this.handleClick} /> 
           </Card>
-
         )
       // }) //multimedia map end
     })
@@ -52,7 +52,6 @@ const mapStateToProps = (state) => {
     articles: state.articlesReducer.articles
   }
 }
-
 
 
 export default connect(mapStateToProps)(ArticleCard)

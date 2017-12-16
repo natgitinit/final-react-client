@@ -30,7 +30,9 @@ import * as actions from '../actions/searchActions';
             id='search-input'
             type="text"
             style={{width: 250}}
-            onChange={this.handleSearchInputChange} />
+            onChange={this.handleSearchInputChange}
+            value={this.state.input}
+            />
           <button type="submit">Submit</button>
         </form>
       </div>

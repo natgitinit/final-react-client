@@ -1,28 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Card } from 'semantic-ui-react';
 
-const Saved = () => {
-  return (
-    <div className="main-container">
-       <div className="row">
-         <div className="col-lg-12">
+class Saved extends Component {
 
-           <div className="panel panel-primary">
-             <div className="panel-heading">
-               <h1 className="panel-title"><strong><i className="fa fa-download" aria-hidden="true"></i> Saved Articles</strong></h1>
-             </div>
-             <div className="panel-body">
-               <ul className="list-group">
+  handleClick = params => {
+    this.props.save(params)
+  }
 
-               </ul>
-             </div>
-           </div>
+  params = {
+    article: {
+      title: this.props.title,
+      category: this.props.category,
+      article_url: this.props.url,
+      abstract: this.props.abstract,
+      byline: this.props.byline
+    }
+  }
 
-         </div>
-       </div>
-     </div>
-  );
-};
+  render() {
+    return (
+      <Card>
+        <div className="ui container center aligned">
+          <button className="ui teal button" link={this.props.url} onClick={() => this.props.save(this.params)} target='_blank'>Save</button>
+        </div>
+      </Card>
+    )
+  }
+}
 
 
 
 export default Saved;
+
+// <button className="btn btn-primary" onClick={this.handleClick.bind(this.handleDelete)}>Delete</button>

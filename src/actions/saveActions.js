@@ -1,21 +1,15 @@
-import fetch from 'isomorphic-fetch';
 
 const RAILS_API = process.env.REACT_APP_API_URL
 
 
-export function savingArticle() {
-  return {
-    type: 'SAVING_ARTICLE'
-  }
-}
-
 export function savedArticle() {
+  debugger;
   return (dispatch) => {
     fetch(`${RAILS_API}/articles`)
     .then(res => { res.json() })
     .then(jsonObject => {
       dispatch({
-        type: 'SAVED_ARTICLE',
+        type: 'SAVE_ARTICLE',
         payload: jsonObject
       })
     })
