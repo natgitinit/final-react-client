@@ -7,13 +7,17 @@ const initialState = {
 export default (state=initialState, action) => {
   switch (action.type) {
     case 'FETCH_ARTICLES_PENDING':
-      return {...state, fetching: true}
+      return {
+        ...state,
+        fetching: true
+      }
     case 'FETCH_ARTICLES_FULFILLED':
       return {
         ...state,
         fetching: false,
         fetched: true,
-        imgs: action.payload
+        articles: action.payload.response.docs
+
       }
     case 'FETCH_ARTICLES_REJECTED':
       return {...state, fetching: false, error: action.payload}
@@ -21,3 +25,7 @@ export default (state=initialState, action) => {
       return state
   }
 }
+
+// export function allArticles(state) {
+//   return state.articles;
+// }

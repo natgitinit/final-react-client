@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
-// import ArticleList from '../containers/ArticleList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/searchActions';
+import { searchQuery } from '../actions/searchActions';
+import SearchResults from '../components/SearchResults';
 
-  class SearchNews extends Component {
+class SearchNews extends Component {
     state = {
       input: ''
     }
 
-      handleSubmit = event => {
-        event.preventDefault();
-        console.log(this)
-        this.props.searchQuery(this.state.input)
-        this.setState({
-          input: ''
-        })
+    handleSubmit = event => {
+      event.preventDefault();
+      console.log(this)
+      this.props.searchQuery(this.state.input)
+      this.setState({
+        input: ''
+      })
     }
 
-    handleSearchInputChange = event => this.setState({ searchTerm: event.target.value });
+    handleSearchInputChange = event => {
 
+      this.setState({
+        input: event.target.value
+      });
+      console.log(this.state.input)
+    }
 
   render() {
+
+
     return (
       <div className="searchable-articles">
         <form onSubmit={this.handleSubmit}>
@@ -30,8 +37,8 @@ import * as actions from '../actions/searchActions';
             id='search-input'
             type="text"
             style={{width: 250}}
-            onChange={this.handleSearchInputChange}
             value={this.state.input}
+            onChange={this.handleSearchInputChange}
             />
           <button type="submit">Submit</button>
         </form>
@@ -40,12 +47,17 @@ import * as actions from '../actions/searchActions';
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  console.log('map dispatch to props')
-  return bindActionCreators(actions, dispatch)
+const mapStateToProps = (state) => {
+  return {
+    articles: state.searchReducer.articles
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+      searchQuery: bindActionCreators(searchQuery, dispatch),
+  }
 }
 
 
-export default connect(null, mapDispatchToProps)(SearchNews);
-
-// {this.state.articles.length > 0 && <h2>Articles By Search:</h2>}
+export default connect(mapStateToProps, mapDispatchToProps)(SearchNews);

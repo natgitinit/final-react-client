@@ -4,14 +4,14 @@ import ArticleCard from '../components/ArticleCard';
 import { bindActionCreators } from 'redux';
 import { fetchedArticles } from '../actions/articleActions';
 import { savedArticle } from '../actions/saveActions';
-import Saved from '../components/Saved';
+// import Saved from '../components/Saved';
 
 
 
 class ArticleList extends Component {
 
     // handleClick = params => {
-    //   this.props.save(params)
+    //   this.props.savedArticle(params)
     // }
 
     componentDidMount() {
@@ -26,7 +26,7 @@ class ArticleList extends Component {
           return (
             <div>
             <ArticleCard />
-        
+
             </div>
           )
         })}

@@ -6,11 +6,14 @@ const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?'
 
   export function searchQuery(query) {
     return (dispatch) => {
-      return fetch(BASE_URL.concat(this.state.searchTerm))
+
+    return fetch(BASE_URL.concat(query))
       // .then(resp => {debugger})
+      .then(res => res.json())
       .then(jsonObject => {
+        // debugger;
         dispatch({
-          type: 'SEARCH_ARTICLES',
+          type: 'FETCH_ARTICLES_FULFILLED',
           payload: jsonObject
         })
       })

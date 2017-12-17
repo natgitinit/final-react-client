@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import { Card } from 'semantic-ui-react';
+
 
 class Saved extends Component {
 
-  handleClick = params => {
-    this.props.save(params)
+  // handleOnClick = params => {
+  //   console.log(this)
+  //   this.props.save(params)
+  // }
+
+  handleClick = () => {
+    this.props.save.dispatch({
+      type: 'SAVE_ARTICLE_FUFILLED'
+    })
   }
+  // handleDelete = params => {
+  //   this.props.delete(params)
+  // }
 
   params = {
     article: {
@@ -19,11 +29,9 @@ class Saved extends Component {
 
   render() {
     return (
-      <Card>
         <div className="ui container center aligned">
-          <button className="ui teal button" link={this.props.url} onClick={() => this.props.save(this.params)} target='_blank'>Save</button>
+          <button className="ui teal button" link={this.props.url} onClick={() => this.handleClick.bind(this)} target='_blank'>Save</button>
         </div>
-      </Card>
     )
   }
 }
@@ -31,5 +39,3 @@ class Saved extends Component {
 
 
 export default Saved;
-
-// <button className="btn btn-primary" onClick={this.handleClick.bind(this.handleDelete)}>Delete</button>

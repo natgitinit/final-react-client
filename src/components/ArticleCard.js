@@ -12,8 +12,8 @@ class ArticleCard extends Component {
         // debugger;
         return (
           <Card className="articleCard">
-          <a href={article.url} target="_blank" class="ui medium image">
-            <img src={ article.multimedia[3] }/>
+          <a href={article.url} target="_blank" className="ui medium image">
+            <img src={ article.multimedia[3] } alt="article-url"/>
           </a>
 
             <Card.Content>
@@ -30,7 +30,7 @@ class ArticleCard extends Component {
             </Card.Description>
             </Card.Content>
             <Saved
-              save={this.handleClick} /> 
+              save={this.handleClick} />
           </Card>
         )
       // }) //multimedia map end
@@ -55,7 +55,3 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps)(ArticleCard)
-
-// <a href={article.url} target="_blank" class="ui medium image">
-//   <img src={ article.multimedia[3] }/>
-// </a>
