@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import SearchNews from './containers/SearchNews';
+import Search from './containers/Search';
 import Saved from './components/Saved';
 import ArticleCard from './components/ArticleCard';
 import * as actions from './actions/articleActions.js';
@@ -26,7 +26,7 @@ export class App extends Component {
               </div>
               <Route exact path="/" component={Home} />
               <Route exact path="/saved" component={Saved} />
-              <Route exact path="/search" component={SearchNews} />
+              <Route exact path="/search" component={Search} />
 
 
              </div>

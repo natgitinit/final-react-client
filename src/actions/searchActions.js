@@ -4,15 +4,30 @@ const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?'
                  + `api-key=${NYT_API_KEY}&q=`;
 
 
+  // export function searchQuery(query) {
+  //   // debugger
+  //   return fetch(BASE_URL.concat(query))
+  //     // .then(resp => {debugger})
+  //     .then(res => res.json())
+  //     .then(jsonObject => {
+  //       // debugger;
+  //       dispatch({
+  //         type: 'FETCH_ARTICLES_FULFILLED',
+  //         payload: jsonObject
+  //       })
+  //     })
+  // }
+
+
   export function searchQuery(query) {
-    // debugger; 
+    // debugger;
     return (dispatch) => {
 
     return fetch(BASE_URL.concat(query))
       // .then(resp => {debugger})
       .then(res => res.json())
       .then(jsonObject => {
-        // debugger;
+        debugger;
         dispatch({
           type: 'FETCH_ARTICLES_FULFILLED',
           payload: jsonObject

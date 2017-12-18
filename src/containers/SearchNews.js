@@ -8,6 +8,7 @@ class SearchNews extends Component {
     }
 
     handleSubmit = event => {
+      //debugger
       event.preventDefault();
       this.props.color(this.state.input)
       // this.props.searchQuery(this.state.input)
@@ -24,7 +25,7 @@ class SearchNews extends Component {
     }
 
   render() {
-    debugger; 
+    //debugger;
     return (
       <div className="searchable-articles">
         <form onSubmit={this.handleSubmit}>
