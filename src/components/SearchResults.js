@@ -1,34 +1,21 @@
 import React, {Component} from 'react';
-import SearchNews from '../containers/SearchNews';
+// import SearchNews from '../containers/SearchNews';
 // import { allArticles } from '../reducers/searchReducer';
 
-const SearchResults = (props) => {
-  // debugger;
-  return (
-    <div>
-      <h1>By Keyword </h1>
-      <div className="right menu">
-        <div className="item">
-        <SearchNews />
+class SearchResults extends Component {
 
-        </div>
-     </div>
-    </div>
-  );
-};
+  render() {
+    this.props.articles.map((article) => {
+      <h1>{article.url}</h1>
+    })
 
-// class SearchResults extends Component {
-//
-//   render() {
-//     return (
-//       <div className="search-results">
-//       <SearchNews/>
-//         <li>
-//           {this.props.articles}
-//         </li>
-//       </div>
-//     )
-//   }
-// }
-//
+    return (
+      <div className='results-list'>
+
+      </div>
+    );
+  }
+}
+
+
 export default SearchResults;

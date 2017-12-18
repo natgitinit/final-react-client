@@ -5,6 +5,7 @@ const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?'
 
 
   export function searchQuery(query) {
+    // debugger; 
     return (dispatch) => {
 
     return fetch(BASE_URL.concat(query))

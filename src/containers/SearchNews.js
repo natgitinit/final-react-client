@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { searchQuery } from '../actions/searchActions';
-import SearchResults from '../components/SearchResults';
+// import SearchResults from '../components/SearchResults';
 
 class SearchNews extends Component {
     state = {
@@ -11,8 +9,8 @@ class SearchNews extends Component {
 
     handleSubmit = event => {
       event.preventDefault();
-      console.log(this)
-      this.props.searchQuery(this.state.input)
+      this.props.color(this.state.input)
+      // this.props.searchQuery(this.state.input)
       this.setState({
         input: ''
       })
@@ -23,12 +21,10 @@ class SearchNews extends Component {
       this.setState({
         input: event.target.value
       });
-      console.log(this.state.input)
     }
 
   render() {
-
-
+    debugger; 
     return (
       <div className="searchable-articles">
         <form onSubmit={this.handleSubmit}>
@@ -47,17 +43,6 @@ class SearchNews extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    articles: state.searchReducer.articles
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-      searchQuery: bindActionCreators(searchQuery, dispatch),
-  }
-}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchNews);
+export default SearchNews;
