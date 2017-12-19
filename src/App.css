@@ -16,5 +16,14 @@ body {
 button.ui.teal.button {
   margin: 5px;
   padding-left: 1em;
-  padding-right: 1em; 
+  padding-right: 1em;
+}
+
+.search-box {
+  width: 100%;
+  text-align: center;
+}
+
+.results-list {
+  padding-top: 2em; 
 }

@@ -1,55 +1,57 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import { searchQuery } from '../actions/searchActions';
 import SearchResults from '../components/SearchResults';
-import SearchNews from '../containers/SearchNews';
+import SearchNews from '../components/SearchNews';
+import { store } from '../index';
 
 
 class Search extends Component {
 
+  componentDidMount() {
+    store.subscribe(() => this.forceUpdate())
+  }
+
   retrieveInput = (input) => {
-    // console.log('new york');
-    searchQuery(input)
+    searchQuery(input).then(res => {
+      store.dispatch({
+        type: 'FETCH_ARTICLES_FULFILLED',
+        payload: res
+      })
+    })
   }
 
   render(){
     return(
       <div>
-      <SearchResults articles={this.props.retrievedArticle} />
       <SearchNews color={this.retrieveInput}/>
+      <SearchResults articles={store.getState().searchReducer.articles}/>
       </div>
     )
   }
 
 }
-// export default Search
+export default Search
 
-// function search () {
-//   console.log('HI')
+
+
+
+// const mapStateToProps = (state) => {
+//   // debugger;
+//   return {
+//     retrievedArticle: state.searchReducer.articles
+//   }
 // }
 //
-// function retrieveInput(input){
-//   console.log(input)
-// }
-
-
-
-const mapStateToProps = (state) => {
-  // debugger;
-  return {
-    retrievedArticle: state.searchReducer.articles
-  }
-}
-
- const mapDispatchToProps = (dispatch) => {
-   return bindActionCreators({
-     searchQuery
-   }, dispatch)
- }
-
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Search)
+//  const mapDispatchToProps = (dispatch) => {
+//    return bindActionCreators({
+//      searchQuery
+//    }, dispatch)
+//  }
+//
+//
+// export default connect(
+//   mapStateToProps
+//   // mapDispatchToProps
+// )(Search)

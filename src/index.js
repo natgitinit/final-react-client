@@ -12,7 +12,7 @@ import {WrapperApp} from './App';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const composeEnhancers = composeWithDevTools({});
-const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+export const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
   applyMiddleware(thunk),
 ));
 

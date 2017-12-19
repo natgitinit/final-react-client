@@ -12,7 +12,6 @@ export default (state=initialState, action) => {
         fetching: true
       }
     case 'FETCH_ARTICLES_FULFILLED':
-    debugger; 
       return {
         ...state,
         fetching: false,
@@ -26,7 +25,3 @@ export default (state=initialState, action) => {
       return state
   }
 }
-
-// export function allArticles(state) {
-//   return state.articles;
-// }

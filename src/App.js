@@ -27,8 +27,6 @@ export class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/saved" component={Saved} />
               <Route exact path="/search" component={Search} />
-
-
              </div>
           </Router>
           {this.props.articles ?
