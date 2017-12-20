@@ -16,7 +16,7 @@ class ArticleCard extends Component {
         return (
           <Card className="articleCard" key={article.short_url}>
           <a href={article.url} target="_blank" className="ui medium image">
-            <img src={ imgResult.url } alt="article-url"/>
+            <img src={ imgResult.url } text-align="center" alt="article-url" className="image"/>
           </a>
 
             <Card.Content>

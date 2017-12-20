@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import { Card } from 'semantic-ui-react';
-// import SearchNews from '../containers/SearchNews';
-// import { allArticles } from '../reducers/searchReducer';
 
 class SearchResults extends Component {
 
   render() {
-    var result = this.props.articles.map((article) => (
+    let result = this.props.articles.map((article) => (
       <Card.Group itemsPerRow={1} size='medium' stackable={true}>
         <Card className="search-card">
           <Card.Header>
