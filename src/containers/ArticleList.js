@@ -44,8 +44,7 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
   return {
-      fetchedArticles: bindActionCreators(fetchedArticles, dispatch),
-      savedArticle: bindActionCreators(savedArticle, dispatch)
+      fetchedArticles: bindActionCreators(fetchedArticles, dispatch)
   }
 }
 

@@ -14,7 +14,7 @@ export default (state=initialState, action) => {
       }
 
     case 'SAVE_ARTICLE_FUFILLED':
-    // debugger; 
+    debugger;
       return {
         ...state,
         fetching: false,
@@ -27,11 +27,11 @@ export default (state=initialState, action) => {
         error: action.payload
       }
 
-    case 'DELETING_ARTICLE':
-    const articles = state.articles.filter(article => article.id !== action.id);
-      return {
-        ...state, fetching: false
-      }
+    // case 'DELETING_ARTICLE':
+    // const articles = state.articles.filter(article => article.id !== action.id);
+    //   return {
+    //     ...state, fetching: false
+    //   }
     default:
       return state;
   }

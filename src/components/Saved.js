@@ -4,12 +4,6 @@ import React, { Component } from 'react';
 class Saved extends Component {
 
 
-  handleClick = () => {
-    this.props.save.dispatch({
-      type: 'SAVE_ARTICLE_FUFILLED'
-    })
-  }
-
   params = {
     article: {
       title: this.props.title,
@@ -32,3 +26,6 @@ class Saved extends Component {
 
 
 export default Saved;
+
+// const allArticles = this.savedArticle.map((article, index) =>
+//   <Article key={index} article={article}/> )

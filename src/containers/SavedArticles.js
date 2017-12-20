@@ -1,30 +1,37 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Saved from './components/Saved';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { savedArticle } from '../actions/saveActions';
+import { store } from '../index';
 
 
 class SavedArticles extends Component {
 
+  retrieveSaved = () => {
+    savedArticle().then(res => {
+      store.dispatch({
+        type: 'SAVED_ARTICLE_FULFILLED',
+        payload: res
+      })
+    })
+  }
 
-
-  const allArticles = props.savedArticle.map((article, index) =>
-    <Article key={index} article={article}/> )
+    render() {
 
       return(
-        <div className="saved-list">
-          <div className="ui cards">
-          <button className="ui teal button" onClick={this.handleClick.bind(this.handleDelete)}>Delete</button>
-          {allArticles}
-          </div>
+        <div>
+
+          <Saved articles={store.getState().saveReducer.savedArticles}/>
+
         </div>
       )
-
+    }
 
   }
 
   const mapStateToProps = (state) => {
+    debugger;
     return {
       savedArticles: state.saveReducer.savedArticles
     }
