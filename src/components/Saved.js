@@ -3,19 +3,12 @@ import React, { Component } from 'react';
 
 class Saved extends Component {
 
-  // handleOnClick = params => {
-  //   console.log(this)
-  //   this.props.save(params)
-  // }
 
   handleClick = () => {
     this.props.save.dispatch({
       type: 'SAVE_ARTICLE_FUFILLED'
     })
   }
-  // handleDelete = params => {
-  //   this.props.delete(params)
-  // }
 
   params = {
     article: {
@@ -30,7 +23,7 @@ class Saved extends Component {
   render() {
     return (
         <div className="ui container center aligned">
-          <button className="ui teal button" link={this.props.url} onClick={() => this.handleClick.bind(this)} target='_blank'>Save</button>
+          <button className="ui teal button" onClick={this.handleClick} target='_blank'>Save</button>
         </div>
     )
   }

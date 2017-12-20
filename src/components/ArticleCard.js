@@ -8,12 +8,15 @@ class ArticleCard extends Component {
   generateArticleCards = () => {
 
     return this.props.articles.map((article) => {
-      // article.multimedia.map((img) => {
-        // debugger;
+      let imgResult = article.multimedia[3]
+      //if {this.props.save}
+
+        if(imgResult) {
+
         return (
-          <Card className="articleCard">
+          <Card className="articleCard" key={article.short_url}>
           <a href={article.url} target="_blank" className="ui medium image">
-            <img src={ article.multimedia[3] } alt="article-url"/>
+            <img src={ imgResult.url } alt="article-url"/>
           </a>
 
             <Card.Content>
@@ -29,11 +32,12 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
-            <Saved
-              save={this.handleClick} />
+            <Saved save={this.props.handleClick} />
           </Card>
         )
-      // }) //multimedia map end
+      } else {
+        return
+      }
     })
   }
   render() {
@@ -55,3 +59,12 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps)(ArticleCard)
+
+// {if (article.saved) {
+//   return (
+//   <Saved
+//     save={this.props.handleClick} /> )
+//   } else {
+//     {article.delete}
+//   }
+// }

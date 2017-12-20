@@ -14,6 +14,7 @@ export default (state=initialState, action) => {
       }
 
     case 'SAVE_ARTICLE_FUFILLED':
+    // debugger; 
       return {
         ...state,
         fetching: false,

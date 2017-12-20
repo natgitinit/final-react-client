@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import { searchQuery } from '../actions/searchActions';
 import SearchResults from '../components/SearchResults';
 import SearchNews from '../components/SearchNews';

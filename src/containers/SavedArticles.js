@@ -26,7 +26,7 @@ class SavedArticles extends Component {
 
   const mapStateToProps = (state) => {
     return {
-      articles: state.saveReducer.savedArticles
+      savedArticles: state.saveReducer.savedArticles
     }
   }
 
