@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Saved from './components/Saved';
+import Saved from '../components/Saved';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { savedArticle } from '../actions/saveActions';
@@ -8,21 +8,30 @@ import { store } from '../index';
 
 class SavedArticles extends Component {
 
-  retrieveSaved = () => {
-    savedArticle().then(res => {
-      store.dispatch({
-        type: 'SAVED_ARTICLE_FULFILLED',
-        payload: res
-      })
-    })
+  handleClick = params => {
+    this.props.savedArticle(params)
   }
+
+  componentDidMount() {
+    store.subscribe(() => this.forceUpdate())
+  }
+
+  // getSaved = () => {
+  //   savedArticle().then(res => {
+  //     store.dispatch({
+  //       type: 'SAVED_ARTICLE_FUFILLED',
+  //       payload: res
+  //     })
+  //   })
+  // }
+
 
     render() {
 
       return(
         <div>
 
-          <Saved articles={store.getState().saveReducer.savedArticles}/>
+          <Saved articles={store.getState().saveReducer.savedArticle}/>
 
         </div>
       )
@@ -30,17 +39,19 @@ class SavedArticles extends Component {
 
   }
 
-  const mapStateToProps = (state) => {
-    debugger;
-    return {
-      savedArticles: state.saveReducer.savedArticles
-    }
-  }
+  export default SavedArticles
 
-  function mapDispatchToProps(dispatch) {
-    return {
-      savedArticle: bindActionCreators(savedArticle, dispatch)
-    }
-  }
-
-  export default connect(mapStateToProps, mapDispatchToProps)(SavedArticles);
+  // const mapStateToProps = (state) => {
+  //
+  //   return {
+  //     savedArticles: state.saveReducer.savedArticle
+  //   }
+  // }
+  //
+  // function mapDispatchToProps(dispatch) {
+  //   return {
+  //     savedArticle: bindActionCreators(savedArticle, dispatch)
+  //   }
+  // }
+  //
+  // export default connect(mapStateToProps, mapDispatchToProps)(SavedArticles);

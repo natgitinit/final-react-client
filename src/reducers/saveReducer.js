@@ -18,7 +18,7 @@ export default (state=initialState, action) => {
       return {
         ...state,
         fetching: false,
-         savedArticles: [...state.savedArticles, ...action.payload.results]
+        savedArticles: [...state.savedArticles, ...action.payload.data.articles]
        }
      case 'SAVE_ARTICLE_REJECTED':
       return {
@@ -27,11 +27,6 @@ export default (state=initialState, action) => {
         error: action.payload
       }
 
-    // case 'DELETING_ARTICLE':
-    // const articles = state.articles.filter(article => article.id !== action.id);
-    //   return {
-    //     ...state, fetching: false
-    //   }
     default:
       return state;
   }

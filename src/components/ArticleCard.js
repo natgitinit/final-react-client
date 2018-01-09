@@ -68,3 +68,6 @@ export default connect(mapStateToProps)(ArticleCard)
 //     {article.delete}
 //   }
 // }
+
+// <Saved save={this.props.handleClick} />
+//line 35
