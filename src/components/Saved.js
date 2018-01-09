@@ -1,36 +1,65 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+//
+//
+// class Saved extends Component {
+//
+//
+//   params = {
+//     article: {
+//       title: this.props.title,
+//       category: this.props.category,
+//       article_url: this.props.url,
+//       abstract: this.props.abstract,
+//       byline: this.props.byline
+//     }
+//   }
+//
+//   render() {
+//     return(
+//
+//     )
+//     }
+//
+//   }
+//
+//
+//
+// export default Saved;
+//
 
 
-class Saved extends Component {
+//
+// <div className="ui container center aligned">
+//   <button className="ui teal button" onClick={this.handleClick} target='_blank'>Save</button>
+// </div>
 
-
-  params = {
-    article: {
-      title: this.props.title,
-      category: this.props.category,
-      article_url: this.props.url,
-      abstract: this.props.abstract,
-      byline: this.props.byline
-    }
-  }
-
-  render() {
-    return (
-        <div className="ui container center aligned">
-          <button className="ui teal button" onClick={this.handleClick} target='_blank'>Save</button>
-        </div>
-    )
-  }
-}
-
-
-
-export default Saved;
-
-// const allArticles = this.savedArticle.map((article, index) =>
-//   <Article key={index} article={article}/> )
-
-
-// <a href={this.props.url} onClick={this.handleClick} target='_blank'>
-//   <h1 className="title"> {this.props.title} </h1>
-// </a>
+//  if (this.props.savedArticles == "") {
+//   return(
+//
+//     <li className="list-group-item">
+//       <h3>
+//           <span><em>You dont have any Saved articles yet!</em></span>
+//       </h3>
+//     </li>
+//
+//   )
+// }
+//
+//  else {
+//
+//    let articles = this.props.savedArticles.map((article, index) => {
+//    return (
+//        <div key={index}>
+//
+//          <li className="list-saved-item" >
+//            <h3>
+//              <span><em>{article.title}</em></span>
+//              <span className="btn-group pull-right" >
+//                <a href={article.article_url} target="_blank"><button className="btn btn-default ">View Article</button></a>            </span>
+//            </h3>
+//          </li>
+//
+//        </div>
+//      )
+//    })
+//  }

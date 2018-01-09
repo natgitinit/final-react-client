@@ -2,9 +2,17 @@
 const RAILS_API = process.env.REACT_APP_API_URL
 
 
-export function savedArticle() {
+
+export function savedArticle(article) {
+  debugger;
   return (dispatch) => {
-    fetch(`${RAILS_API}/articles`)
+    fetch(`${RAILS_API}/articles`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(article)
+    })
     // .then(resp => {debugger})
     .then(res => { res.json() })
     .then(jsonObject => {

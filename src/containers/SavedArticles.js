@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Saved from '../components/Saved';
+// import Saved from '../components/Saved';
+import ArticleCard from '../components/ArticleCard';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { savedArticle } from '../actions/saveActions';
@@ -13,23 +14,21 @@ class SavedArticles extends Component {
   }
 
 
-  getSaved = () => {
-    savedArticle().then(res => {
-      store.dispatch({
-        type: 'SAVED_ARTICLE_FUFILLED',
-        payload: res
-      })
-    })
-  }
+  // save = () => {
+  //   savedArticle().then(res => {
+  //     store.dispatch({
+  //       type: 'SAVED_ARTICLE_FUFILLED',
+  //       payload: res
+  //     })
+  //   })
+  // }
 
 
     render() {
 
       return(
         <div>
-
-          <Saved articles={store.getState().saveReducer.savedArticle}/>
-
+          <ArticleCard getSaved={this.handleClick}/>
         </div>
       )
     }

@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import Saved from '../components/Saved';
+// import Saved from '../components/Saved';
 
 class ArticleCard extends Component {
 
   generateArticleCards = () => {
-
+    debugger;
     return this.props.articles.map((article) => {
       let imgResult = article.multimedia[3]
       //if {this.props.save}
 
         if(imgResult) {
-
         return (
           <Card className="articleCard" key={article.short_url}>
           <a href={article.url} target="_blank" className="ui medium image">
@@ -32,7 +31,9 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
-            <Saved save={this.props.handleClick} />
+
+            <button className="ui teal button" onClick={this.props.getSaved.bind(this, article)} target='_blank'>Save</button>
+
           </Card>
         )
       } else {
@@ -68,6 +69,3 @@ export default connect(mapStateToProps)(ArticleCard)
 //     {article.delete}
 //   }
 // }
-
-// <Saved save={this.props.handleClick} />
-//line 35
