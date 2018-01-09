@@ -12,18 +12,15 @@ class SavedArticles extends Component {
     this.props.savedArticle(params)
   }
 
-  componentDidMount() {
-    store.subscribe(() => this.forceUpdate())
-  }
 
-  // getSaved = () => {
-  //   savedArticle().then(res => {
-  //     store.dispatch({
-  //       type: 'SAVED_ARTICLE_FUFILLED',
-  //       payload: res
-  //     })
-  //   })
-  // }
+  getSaved = () => {
+    savedArticle().then(res => {
+      store.dispatch({
+        type: 'SAVED_ARTICLE_FUFILLED',
+        payload: res
+      })
+    })
+  }
 
 
     render() {
