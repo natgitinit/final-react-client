@@ -29,3 +29,8 @@ export default Saved;
 
 // const allArticles = this.savedArticle.map((article, index) =>
 //   <Article key={index} article={article}/> )
+
+
+// <a href={this.props.url} onClick={this.handleClick} target='_blank'>
+//   <h1 className="title"> {this.props.title} </h1>
+// </a>
