@@ -2,18 +2,9 @@
 //
 //
 // class Saved extends Component {
-//
-//
-//   params = {
-//     article: {
-//       title: this.props.title,
-//       category: this.props.category,
-//       article_url: this.props.url,
-//       abstract: this.props.abstract,
-//       byline: this.props.byline
-//     }
-//   }
-//
+
+
+
 //   render() {
 //     return(
 //
