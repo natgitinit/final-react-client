@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { savedArticle } from '../actions/saveActions';
+
 // import Saved from '../components/Saved';
 
 class ArticleCard extends Component {
 
+  handleClick = params => {
+    savedArticle(params) //catch response
+    console.log(params)
+  }
+
   generateArticleCards = () => {
-    debugger;
+
     return this.props.articles.map((article) => {
       let imgResult = article.multimedia[3]
       //if {this.props.save}
@@ -32,7 +39,7 @@ class ArticleCard extends Component {
             </Card.Description>
             </Card.Content>
 
-            <button className="ui teal button" onClick={this.props.getSaved.bind(this, article)} target='_blank'>Save</button>
+            <button className="ui teal button" onClick={() => this.handleClick(article)} target='_blank'>Save</button>
 
           </Card>
         )
@@ -57,7 +64,6 @@ const mapStateToProps = (state) => {
     articles: state.articlesReducer.articles
   }
 }
-
 
 export default connect(mapStateToProps)(ArticleCard)
 
