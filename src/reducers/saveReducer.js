@@ -5,7 +5,7 @@ const initialState = {
   error: null
 }
 
-export default (state=initialState, action) => {
+const saveReducer = (state=initialState, action) => {
   switch (action.type) {
     case 'SAVE_ARTICLE_PENDING':
       return {
@@ -14,6 +14,7 @@ export default (state=initialState, action) => {
       }
 
     case 'SAVE_ARTICLE_FUFILLED':
+    // debugger;
       return {
         ...state,
         fetching: false,
@@ -30,3 +31,5 @@ export default (state=initialState, action) => {
       return state;
   }
 }
+
+export default saveReducer;

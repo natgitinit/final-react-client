@@ -9,7 +9,6 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Search from './containers/Search';
 import Saved from './components/Saved';
-// import SavedArticles from './containers/SavedArticles';
 import ArticleCard from './components/ArticleCard';
 import * as actions from './actions/articleActions.js';
 import './App.css';

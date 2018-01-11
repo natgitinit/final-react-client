@@ -8,9 +8,21 @@ import { savedArticle } from '../actions/saveActions';
 class ArticleCard extends Component {
 
   handleClick = params => {
-    savedArticle(params) //catch response
-    console.log(params)
-  }
+      savedArticle(params)
+      .then(res => {
+        console.log(res)
+        return res;
+      })
+      .then(jsonObject => {
+      return (dispatch) => {
+        dispatch({
+          type: 'SAVE_ARTICLE_FUFILLED',
+          payload: jsonObject
+        })
+      }})
+    }
+
+
 
   generateArticleCards = () => {
 
