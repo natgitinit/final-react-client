@@ -8,6 +8,7 @@ const initialState = {
 const saveReducer = (state=initialState, action) => {
   switch (action.type) {
     case 'SAVE_ARTICLE_PENDING':
+    debugger;
       return {
         ...state,
         fetching: true
@@ -18,7 +19,7 @@ const saveReducer = (state=initialState, action) => {
       return {
         ...state,
         fetching: false,
-        savedArticles: [...state.savedArticles, ...action.payload.data.articles]
+        savedArticles: [...state.savedArticles, ...action.payload]
        }
      case 'SAVE_ARTICLE_REJECTED':
       return {

@@ -3,25 +3,29 @@ import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { savedArticle } from '../actions/saveActions';
 
-// import Saved from '../components/Saved';
+import Saved from '../components/Saved';
 
 class ArticleCard extends Component {
 
   handleClick = params => {
-      savedArticle(params)
-      .then(res => {
-        console.log(res)
-        return res;
-      })
-      .then(jsonObject => {
-      return (dispatch) => {
-        dispatch({
-          type: 'SAVE_ARTICLE_FUFILLED',
-          payload: jsonObject
-        })
-      }})
+      this.props.dispatch(savedArticle(params))
+      console.log(params)
     }
 
+    // handleClick = params => {
+    //   savedArticle(params)
+    //   .then(res => {
+    //     console.log(res)
+    //     return res;
+    //   })
+    //   .then(jsonObject => {
+    //     return (dispatch) => {
+    //       dispatch({
+    //         type: 'SAVE_ARTICLE_FUFILLED',
+    //         payload: jsonObject
+    //       })
+    //     }})
+    //   }
 
 
   generateArticleCards = () => {

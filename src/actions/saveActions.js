@@ -2,10 +2,9 @@
 const RAILS_API = process.env.REACT_APP_API_URL
 
 
-
 export function savedArticle(article) {
   // debugger;
-  // return (dispatch) => {
+  return (dispatch) => {
     return fetch(`${RAILS_API}/articles`, {
       method: 'POST',
       headers: {
@@ -14,11 +13,11 @@ export function savedArticle(article) {
       body: JSON.stringify(article)
     })
     .then(res => res.json())
-    // .then(jsonObject => {
-    //   dispatch({
-    //     type: 'SAVE_ARTICLE_FUFILLED',
-    //     payload: jsonObject
-    //   })
-    // })
-  // }
+    .then(jsonObject => {
+      dispatch({
+        type: 'SAVE_ARTICLE_FUFILLED',
+        payload: jsonObject
+      })
+    })
+  }
 }
