@@ -25,25 +25,30 @@ export class App extends Component {
                  <NavBar />
               </div>
               <Route exact path="/" component={Home} />
-              <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles}/>} />
+              <Route exact path="/saved" component={Saved} />
               <Route exact path="/search" component={Search} />
              </div>
           </Router>
           {this.props.articles ?
             <ArticleCard /> : null }
-
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return {articles: state.articles}
+  return {
+    articles: state.articles
+  }
 }
 
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(actions, dispatch)}
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  }
 }
 
 
-export const WrapperApp = connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles}/>} />

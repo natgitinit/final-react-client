@@ -8,7 +8,7 @@ import {
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/index';
-import {WrapperApp} from './App';
+import App from './App';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const composeEnhancers = composeWithDevTools({});
@@ -22,6 +22,6 @@ export const store = createStore(rootReducer, /* preloadedState, */ composeEnhan
 
 ReactDOM.render(
   <Provider store={store} >
-  <WrapperApp />
+  <App />
   </Provider>, document.getElementById('root')
 )
