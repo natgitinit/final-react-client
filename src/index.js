@@ -12,13 +12,9 @@ import App from './App';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const composeEnhancers = composeWithDevTools({});
-export const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
+export const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk),
 ));
-
-
-// const store = createStore(rootReducer,  applyMiddleware(thunk)
-//               +  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <Provider store={store} >

@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { savedArticle } from '../actions/saveActions';
-
-
-// import ArticleCard from '../components/ArticleCard';
-// import { Card } from 'semantic-ui-react';
-
-
+import ArticleCard from '../components/ArticleCard';
+import { Card } from 'semantic-ui-react';
+// import { connect } from 'react-redux';
+// import { savedArticle } from '../actions/saveActions';
 
 
 // const Saved = (props) => {
-//   console.log(props)
-//   const articles = this.props.savedArticles.map((article, index) => <ArticleCard key={index} article={article}/>)
+//   debugger;
+//   const articles = props.savedArticles.map((article, index) => {article.title})
 //
 //       return(
 //         <div className="save-list">
@@ -26,69 +22,63 @@ import { savedArticle } from '../actions/saveActions';
 //
 //   export default Saved;
 
-
 class Saved extends Component {
 
+  generateSaved = () => {
+    return this.props.savedArticles.map((article, index) => {
+      return (
+        <Card className="saved" key={index}>
+          <a href={article.url} target="_blank"><button className="btn btn-default ">View Article</button></a>
 
+
+          <Card.Content>
+          <Card.Header>
+            <div className="title">
+              <h3>{article.title}</h3>
+            </div>
+          </Card.Header>
+          <Card.Meta>
+            <div>Author: {article.byline}</div>
+          </Card.Meta>
+          <Card.Description>
+          {article.abstract}
+          </Card.Description>
+          </Card.Content>
+
+          <button className="ui teal button" onClick={() => this.handleClick(article)} target='_blank'>Save</button>
+
+        </Card>
+      )
+    })
+  }
 
   render() {
-    // debugger;
-    return this.props.savedArticles.map((article) => {
-       return (
-          <div>
-             <li className="list-saved-item" >
-               <h3>
-                 <span><em>{article.title}</em></span>
-                 <span className="btn-group pull-right" >
-                   <a href={article.article_url} target="_blank"><button className="btn btn-default ">View Article</button></a>            </span>
-               </h3>
-             </li>
-
-           </div>
-         )
-       })
-
-    // if (!this.props.savedArticles) {
-    //   return(
-    //
-    //     <li className="list-group-item">
-    //       <h3>
-    //           <span><em>You dont have any Saved articles yet!</em></span>
-    //       </h3>
-    //     </li>
-    //
-    //     )
-    //   }
-    //
-    //  else {
-    //
-    //    let articles = this.props.savedArticles.map((article, index) => {
-    //    return (
-    //        <div key={index}>
-    //
-    //          <li className="list-saved-item" >
-    //            <h3>
-    //              <span><em>{article.title}</em></span>
-    //              <span className="btn-group pull-right" >
-    //                <a href={article.article_url} target="_blank"><button className="btn btn-default ">View Article</button></a>            </span>
-    //            </h3>
-    //          </li>
-    //
-    //        </div>
-    //      )
-    //    })
-    //  }
-    // }
-    }
-  }
-
-  function mapStateToProps(state) {
-    return {
-      savedArticles: state.savedArticles
-    }
+    return (
+      <Card.Group itemsPerRow={3} size='medium'>
+        {this.generateSaved()}
+      </Card.Group>
+    )
   }
 
 
+}
 
+export default Saved;
 
-export default connect(mapStateToProps, {savedArticle} )(Saved);
+// return (
+// <div key={index}>
+//   <li className="list-group-item" >
+//
+//      <h3>
+//        <span><em>{article.title}</em></span>
+//        <span className="btn-group pull-right" >
+//          <a href={article.url} target="_blank"><button className="btn btn-default ">View Article</button></a>
+//          <button className="btn btn-primary" onClick={this.handleClick.bind(this, article)}>Delete</button>
+//        </span>
+//      </h3>
+//      <p>Date Published: {article.date}</p>
+//
+//    </li>
+//
+//  </div>
+// )

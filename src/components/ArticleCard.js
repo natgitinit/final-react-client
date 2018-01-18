@@ -14,10 +14,8 @@ class ArticleCard extends Component {
 
 
   generateArticleCards = () => {
-
     return this.props.articles.map((article) => {
       let imgResult = article.multimedia[3]
-
         if(imgResult) {
         return (
           <Card className="articleCard" key={article.short_url}>
@@ -38,7 +36,7 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
-
+            
             <button className="ui teal button" onClick={() => this.handleClick(article)} target='_blank'>Save</button>
 
           </Card>
@@ -65,13 +63,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ArticleCard)
-
-// {if (article.saved) {
-//   return (
-//   <Saved
-//     save={this.props.handleClick} /> )
-//   } else {
-//     {article.delete}
-//   }
-// }
+export default connect(mapStateToProps)(ArticleCard);

@@ -25,7 +25,7 @@ export class App extends Component {
                  <NavBar />
               </div>
               <Route exact path="/" component={Home} />
-              <Route exact path="/saved" component={Saved} />
+              <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles}/>} />
               <Route exact path="/search" component={Search} />
              </div>
           </Router>
@@ -37,8 +37,9 @@ export class App extends Component {
 }
 
 function mapStateToProps(state) {
+  // debugger;
   return {
-    articles: state.articles
+    savedArticles: state.saveReducer.savedArticles
   }
 }
 
@@ -51,4 +52,5 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
+// <Route exact path="/saved" component={Saved} />
 // <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles}/>} />
