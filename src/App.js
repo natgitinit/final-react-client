@@ -37,7 +37,6 @@ export class App extends Component {
 }
 
 function mapStateToProps(state) {
-  // debugger;
   return {
     savedArticles: state.saveReducer.savedArticles
   }

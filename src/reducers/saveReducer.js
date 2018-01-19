@@ -54,10 +54,15 @@ const saveReducer = (
           // savedArticles: action.payload
           savedArticles: [...state.savedArticles, action.payload]
         }
-        // debugger;
+
+      case 'DELETE_ARTICLE':
+        const articles = state.savedArticles.filter(article => article.id !== action.id);
+        return {
+          articles
+        };
+
       default:
         return state;
-
 
     }
 

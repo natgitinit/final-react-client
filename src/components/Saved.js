@@ -2,33 +2,25 @@ import React, { Component } from 'react';
 import ArticleCard from '../components/ArticleCard';
 import { Card } from 'semantic-ui-react';
 // import { connect } from 'react-redux';
-// import { savedArticle } from '../actions/saveActions';
+import { deleteArticle } from '../actions/saveActions';
 
 
-// const Saved = (props) => {
-//   debugger;
-//   const articles = props.savedArticles.map((article, index) => {article.title})
-//
-//       return(
-//         <div className="save-list">
-//           <div className="ui cards">
-//             {articles}
-//           </div>
-//         </div>
-//       )
-//
-//
-//   }
-//
-//   export default Saved;
 
 class Saved extends Component {
+
+  // handleOnClick = params => {
+  //   debugger;
+  //     this.props.deleteArticle(params)
+  //     console.log(params)
+  //   }
 
   generateSaved = () => {
     return this.props.savedArticles.map((article, index) => {
       return (
         <Card className="saved" key={index}>
-          <a href={article.url} target="_blank"><button className="btn btn-default ">View Article</button></a>
+          <a href={article.url} target="_blank">
+            <button className="ui orange button">View Article</button>
+          </a>
 
 
           <Card.Content>
@@ -45,7 +37,7 @@ class Saved extends Component {
           </Card.Description>
           </Card.Content>
 
-          <button className="ui teal button" onClick={() => this.handleClick(article)} target='_blank'>Save</button>
+          <button className="ui teal button" onClick={() => this.handleOnClick(article)} target='_blank'>Delete</button>
 
         </Card>
       )
@@ -60,25 +52,8 @@ class Saved extends Component {
     )
   }
 
-
 }
 
-export default Saved;
 
-// return (
-// <div key={index}>
-//   <li className="list-group-item" >
-//
-//      <h3>
-//        <span><em>{article.title}</em></span>
-//        <span className="btn-group pull-right" >
-//          <a href={article.url} target="_blank"><button className="btn btn-default ">View Article</button></a>
-//          <button className="btn btn-primary" onClick={this.handleClick.bind(this, article)}>Delete</button>
-//        </span>
-//      </h3>
-//      <p>Date Published: {article.date}</p>
-//
-//    </li>
-//
-//  </div>
-// )
+
+export default Saved;
