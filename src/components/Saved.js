@@ -8,11 +8,12 @@ import { deleteArticle } from '../actions/saveActions';
 
 class Saved extends Component {
 
-  // handleOnClick = params => {
-  //   debugger;
-  //     this.props.deleteArticle(params)
-  //     console.log(params)
-  //   }
+  handleOnClick = params => {
+    debugger;
+  this.props.deleteArticle(params)
+      this.props.store.dispatch(deleteArticle(params))
+      console.log(params)
+    }
 
   generateSaved = () => {
     return this.props.savedArticles.map((article, index) => {

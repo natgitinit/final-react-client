@@ -50,6 +50,3 @@ function mapDispatchToProps(dispatch) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-// <Route exact path="/saved" component={Saved} />
-// <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles}/>} />
