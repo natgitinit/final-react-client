@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import ArticleCard from '../components/ArticleCard';
 import { Card } from 'semantic-ui-react';
-// import { connect } from 'react-redux';
-import { deleteArticle } from '../actions/saveActions';
-
-
+import { deleteArticle } from '../actions/articleActions';
 
 class Saved extends Component {
 
-  handleOnClick = params => {
-    debugger;
-  this.props.deleteArticle(params)
-      this.props.store.dispatch(deleteArticle(params))
-      console.log(params)
+  handleOnClick = (params) => {
+    this.props.deleteArticle(params)
+    console.log(params)
     }
+
+    componentDidMount = () => {
+      this.props.getSaved()
+    }
+
 
   generateSaved = () => {
     return this.props.savedArticles.map((article, index) => {
@@ -22,7 +22,6 @@ class Saved extends Component {
           <a href={article.url} target="_blank">
             <button className="ui orange button">View Article</button>
           </a>
-
 
           <Card.Content>
           <Card.Header>
@@ -54,7 +53,5 @@ class Saved extends Component {
   }
 
 }
-
-
 
 export default Saved;

@@ -22,11 +22,32 @@ export function savedArticle(article) {
   }
 }
 
+
+export function getSaved() {
+  // debugger;
+  return (dispatch) => {
+    return fetch(`${RAILS_API}/articles`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify()
+    })
+    .then(res => res.json())
+    .then(jsonObject => {
+      dispatch({
+      type: 'FETCHED_SAVED',
+      payload: jsonObject
+      })
+    })
+  }
+}
+
+
 export function deleteArticle(article) {
   return (dispatch) => {
     return fetch(`${RAILS_API}/articles/${article.id}`, {
       method: 'DELETE',
-      body: JSON.stringify(article)
     })
     .then(res => res.json())
     .then(jsonObject => {

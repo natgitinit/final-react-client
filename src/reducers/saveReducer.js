@@ -1,7 +1,8 @@
 const saveReducer = (
   state = {
     isLoading: false,
-    savedArticles: []
+    savedArticles: [],
+    saved: [],
   }, action) => {
 
     switch (action.type) {
@@ -17,11 +18,19 @@ const saveReducer = (
           savedArticles: [...state.savedArticles, action.payload]
         }
 
-      case 'DELETE_ARTICLE':
-        const articles = state.savedArticles.filter(article => article.id !== action.id);
+      case 'FETCHED_SAVED':
+      // debugger;
         return {
-          articles
-        };
+          ...state,
+          saved: action.payload
+        }
+
+      case 'DELETE_ARTICLE':
+      debugger;
+        const deleteArticle = state.saved.filter(article => article.id !== action.id);
+        return {
+          deleteArticle
+        }
 
       default:
         return state;

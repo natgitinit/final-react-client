@@ -14,13 +14,13 @@ class ArticleCard extends Component {
 
 
   generateArticleCards = () => {
-    return this.props.articles.map((article) => {
+    return this.props.articles.map((article, index) => {
       let imgResult = article.multimedia[3]
         if(imgResult) {
         return (
-          <Card className="articleCard" key={article.short_url}>
+          <Card className="articleCard" key={index}>
           <a href={article.url} target="_blank" className="ui medium image">
-            <img src={ imgResult.url } text-align="center" alt="article-url" className="image"/>
+            <img src={ imgResult.url } alt="article-url" className="image"/>
           </a>
 
             <Card.Content>
@@ -36,7 +36,7 @@ class ArticleCard extends Component {
             {article.abstract}
             </Card.Description>
             </Card.Content>
-            
+
             <button className="ui teal button" onClick={() => this.handleClick(article)} target='_blank'>Save</button>
 
           </Card>

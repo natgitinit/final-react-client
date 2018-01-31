@@ -16,6 +16,7 @@ const articlesReducer = (
           ...state,
           articles: [...state.articles, ...action.payload.results]
         }
+
       default:
         return state;
 

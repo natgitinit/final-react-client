@@ -16,10 +16,10 @@ class ArticleList extends Component {
   render() {
     return (
       <div className="art-stories">
-        {this.props.articles.map((article) => {
+        {this.props.articles.map((article, index) => {
           return (
             <div>
-            <ArticleCard />
+            <ArticleCard key={index}/>
 
             </div>
           )
