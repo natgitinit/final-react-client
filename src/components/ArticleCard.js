@@ -3,8 +3,6 @@ import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { savedArticle } from '../actions/saveActions';
 
-// import Saved from '../components/Saved';
-
 class ArticleCard extends Component {
 
   handleClick = params => {
@@ -62,5 +60,6 @@ const mapStateToProps = (state) => {
     articles: state.articlesReducer.articles
   }
 }
+
 
 export default connect(mapStateToProps)(ArticleCard);

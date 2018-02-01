@@ -25,6 +25,8 @@ class Saved extends Component {
 
 
   generateSaved = () => {
+    if (this.props.savedArticles){
+
     return this.props.savedArticles.map((article, index) => {
       // debugger;
       return (
@@ -52,6 +54,9 @@ class Saved extends Component {
         </Card>
       )
     })
+    } else {
+      this.props.getSaved();
+    }
   }
 
   render() {
