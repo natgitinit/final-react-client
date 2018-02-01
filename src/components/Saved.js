@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ArticleCard from '../components/ArticleCard';
 import { Card } from 'semantic-ui-react';
 import { deleteArticle } from '../actions/articleActions';
 
@@ -14,9 +13,20 @@ class Saved extends Component {
       this.props.getSaved()
     }
 
+    componentWillUpdate = () => {
+      this.props.getSaved(this.props.params);
+      //not sure if I need to call getSaved or pass in deleteSuccess
+      // console.log('componentWillUpdate')
+    }
+
+    componentDidUpdate = () => {
+      // console.log('componentDidUpdate')
+    }
+
 
   generateSaved = () => {
     return this.props.savedArticles.map((article, index) => {
+      // debugger;
       return (
         <Card className="saved" key={index}>
           <a href={article.url} target="_blank">

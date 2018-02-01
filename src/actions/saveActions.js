@@ -58,3 +58,10 @@ export function deleteArticle(article) {
     })
   }
 }
+
+
+// export function deleteArticleSuccess() {
+//   return {
+//     type: 'DELETE_ARTICLE_SUCCESS'
+//   }
+// }

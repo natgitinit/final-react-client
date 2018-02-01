@@ -27,7 +27,7 @@ export class App extends Component {
                  <NavBar />
               </div>
               <Route exact path="/" component={Home} />
-              <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles} deleteArticle={this.props.deleteArticle} getSaved={this.props.getSaved}/>} />
+              <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles} deleteArticle={this.props.deleteArticle} getSaved={this.props.getSaved} />} />
               <Route exact path="/search" component={Search} />
              </div>
           </Router>

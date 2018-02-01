@@ -18,8 +18,8 @@ class ArticleList extends Component {
       <div className="art-stories">
         {this.props.articles.map((article, index) => {
           return (
-            <div>
-            <ArticleCard key={index}/>
+            <div key={index}>
+            <ArticleCard />
 
             </div>
           )

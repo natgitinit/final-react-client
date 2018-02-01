@@ -19,18 +19,21 @@ const saveReducer = (
         }
 
       case 'FETCHED_SAVED':
-      // debugger;
         return {
           ...state,
           saved: action.payload
         }
 
       case 'DELETE_ARTICLE':
-      debugger;
         const deleteArticle = state.saved.filter(article => article.id !== action.id);
         return {
           deleteArticle
         }
+
+      // case 'DELETE_ARTICLE_SUCCESS':
+      //   return {
+      //     ...state
+      //   }
 
       default:
         return state;
