@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
-import { deleteArticle } from '../actions/articleActions';
+
 
 class Saved extends Component {
 
