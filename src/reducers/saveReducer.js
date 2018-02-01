@@ -29,12 +29,7 @@ const saveReducer = (
         return {
           deleteArticle
         }
-
-      // case 'DELETE_ARTICLE_SUCCESS':
-      //   return {
-      //     ...state
-      //   }
-
+        
       default:
         return state;
 

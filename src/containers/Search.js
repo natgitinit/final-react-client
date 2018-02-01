@@ -31,25 +31,3 @@ class Search extends Component {
 
 }
 export default Search
-
-
-
-
-// const mapStateToProps = (state) => {
-//   // debugger;
-//   return {
-//     retrievedArticle: state.searchReducer.articles
-//   }
-// }
-//
-//  const mapDispatchToProps = (dispatch) => {
-//    return bindActionCreators({
-//      searchQuery
-//    }, dispatch)
-//  }
-//
-//
-// export default connect(
-//   mapStateToProps
-//   // mapDispatchToProps
-// )(Search)
