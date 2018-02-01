@@ -15,20 +15,17 @@ class Saved extends Component {
 
     componentWillUpdate = () => {
       this.props.getSaved(this.props.params);
-      //not sure if I need to call getSaved or pass in deleteSuccess
       // console.log('componentWillUpdate')
     }
 
     componentDidUpdate = () => {
-      // console.log('componentDidUpdate')
+      console.log('componentDidUpdate')
     }
 
 
   generateSaved = () => {
     if (this.props.savedArticles){
-
     return this.props.savedArticles.map((article, index) => {
-      // debugger;
       return (
         <Card className="saved" key={index}>
           <a href={article.url} target="_blank">
