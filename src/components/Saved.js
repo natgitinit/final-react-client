@@ -13,15 +13,6 @@ class Saved extends Component {
       this.props.getSaved()
     }
 
-    componentWillUpdate = () => {
-      this.props.getSaved(this.props.params);
-      // console.log('componentWillUpdate')
-    }
-
-    componentDidUpdate = () => {
-      console.log('componentDidUpdate')
-    }
-
 
   generateSaved = () => {
     if (this.props.savedArticles){
