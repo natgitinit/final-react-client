@@ -7,7 +7,6 @@ class SearchNews extends Component {
     }
 
     handleSubmit = event => {
-      //debugger
       event.preventDefault();
       this.props.color(this.state.input)
       this.setState({
