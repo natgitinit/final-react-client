@@ -4,10 +4,27 @@ import { Card } from 'semantic-ui-react';
 
 class Saved extends Component {
 
+  constructor(article) {
+    super(article);
+
+    this.state = {
+      upVoteCount: 0,
+    };
+
+    this.handleUpVote = this.handleUpVote.bind(this);
+  }
+
+  handleUpVote = () => {
+    this.setState({
+      upVoteCount: ++this.state.upVoteCount,
+    })
+  }
+
   handleOnClick = (params) => {
     this.props.deleteArticle(params)
     console.log(params)
     }
+
 
     componentDidMount = () => {
       this.props.getSaved()
@@ -39,6 +56,8 @@ class Saved extends Component {
 
           <button className="ui teal button" onClick={() => this.handleOnClick(article)} target='_blank'>Delete</button>
 
+          <button className='ui red button' onClick={passTheId}>{this.state.upVoteCount} </button>
+
         </Card>
       )
     })
@@ -58,3 +77,13 @@ class Saved extends Component {
 }
 
 export default Saved;
+
+
+
+
+// upVote = (article) => {
+//   console.log(this.state)
+//   let count = 0;
+//   this.setState(article)
+//
+// }
