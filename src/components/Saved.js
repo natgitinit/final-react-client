@@ -60,7 +60,7 @@ class Saved extends Component {
           <button className="ui teal button" onClick={() => this.handleOnClick(article)} target='_blank'>Delete</button>
           <div key={index}>
           <button className="ui red button" onClick={() => this.handleUpVote(article)}> Upvotes: </button>
-          {this.props.upVoteCount}
+          {article.upvote_count}
           </div>
         </Card>
       )
