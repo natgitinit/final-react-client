@@ -58,3 +58,24 @@ export function deleteArticle(article) {
     })
   }
 }
+
+export function upVote(article) {
+  return(dispatch) => {
+    return fetch(`${RAILS_API}/articles/${article.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify()
+    })
+    // .then(resp => { debugger })
+    .then(res => res.json())
+    .then(jsonObject => {
+      dispatch({
+        type: 'UPVOTE_ARTICLE_FUFILLED',
+        
+        payload: jsonObject
+      })
+    })
+  }
+}

@@ -4,18 +4,23 @@ import { Card } from 'semantic-ui-react';
 
 class Saved extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      upVoteCount: 0,
-    };
-    this.handleUpVote = this.handleUpVote.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     upVoteCount: 0,
+  //   };
+  //   this.handleUpVote = this.handleUpVote.bind(this);
+  // }
+  //
+  // handleUpVote = () => {
+  //   this.setState({
+  //     upVoteCount: ++this.state.upVoteCount,
+  //   })
+  // }
 
-  handleUpVote = (articleId) => {
-    this.setState({
-      upVoteCount: ++this.state.upVoteCount,
-    })
+  handleUpVote(params) {
+    this.props.upVote(params)
+    console.log(params)
   }
 
   handleOnClick = (params) => {
@@ -53,9 +58,10 @@ class Saved extends Component {
           </Card.Content>
 
           <button className="ui teal button" onClick={() => this.handleOnClick(article)} target='_blank'>Delete</button>
-
-          <button className='ui red button' onClick={() => this.handleUpVote(index)} target='_blank'>{this.state.upVoteCount} </button>
-
+          <div key={index}>
+          <button className="ui red button" onClick={() => this.handleUpVote(article)}> Upvotes: </button>
+          {this.props.upVoteCount}
+          </div>
         </Card>
       )
     })
@@ -75,3 +81,7 @@ class Saved extends Component {
 }
 
 export default Saved;
+
+// <div key = {index}>
+// <button className='ui red button' onClick={(index) => this.handleUpVote(index)} target='_blank'>{this.state.upVoteCount} </button>
+// </div>

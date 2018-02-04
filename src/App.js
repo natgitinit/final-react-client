@@ -13,6 +13,7 @@ import ArticleCard from './components/ArticleCard';
 import * as actions from './actions/articleActions.js';
 import { getSaved } from './actions/saveActions.js';
 import { deleteArticle } from './actions/saveActions.js';
+import { upVote } from './actions/saveActions.js';
 import './App.css';
 
 
@@ -27,7 +28,12 @@ export class App extends Component {
                  <NavBar />
               </div>
               <Route exact path="/" component={Home} />
-              <Route exact path="/saved" render={() => <Saved savedArticles={this.props.savedArticles} deleteArticle={this.props.deleteArticle} getSaved={this.props.getSaved} />} />
+              <Route exact path="/saved" render={() => <Saved
+                                                        savedArticles={this.props.savedArticles}
+                                                        deleteArticle={this.props.deleteArticle}
+                                                        getSaved={this.props.getSaved}
+                                                        upVote={this.props.upVote}
+                                                        upVoteCount={this.props.upvote_count} />} />
               <Route exact path="/search" component={Search} />
              </div>
           </Router>
@@ -49,7 +55,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(actions, dispatch),
     getSaved: bindActionCreators(getSaved, dispatch),
-    deleteArticle: bindActionCreators(deleteArticle, dispatch)
+    deleteArticle: bindActionCreators(deleteArticle, dispatch),
+    upVote: bindActionCreators(upVote, dispatch)
   }
 }
 

@@ -29,12 +29,19 @@ const saveReducer = (
         return {
           deleteArticle
         }
-        
+
+      case 'UPVOTE_ARTICLE_FUFILLED':
+        return {
+          ...state,
+          saved: action.payload,
+        }
+
       default:
         return state;
 
     }
 
 };
+
 
 export default saveReducer;
