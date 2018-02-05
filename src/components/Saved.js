@@ -33,10 +33,12 @@ class Saved extends Component {
       this.props.getSaved()
     }
 
-
   generateSaved = () => {
     if (this.props.savedArticles){
-    return this.props.savedArticles.map((article, index) => {
+      const sortedArticles = this.props.savedArticles.sort(function(a, b) {
+        return b.upvote_count - a.upvote_count;
+      })
+    return sortedArticles.map((article, index) => {
       return (
         <Card className="saved" key={index}>
           <a href={article.url} target="_blank">

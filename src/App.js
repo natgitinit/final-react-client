@@ -32,8 +32,7 @@ export class App extends Component {
                                                         savedArticles={this.props.savedArticles}
                                                         deleteArticle={this.props.deleteArticle}
                                                         getSaved={this.props.getSaved}
-                                                        upVote={this.props.upVote}
-                                                        upVoteCount={this.props.upvote_count} />} />
+                                                        upVote={this.props.upVote}   />} />
               <Route exact path="/search" component={Search} />
              </div>
           </Router>

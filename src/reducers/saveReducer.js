@@ -31,9 +31,20 @@ const saveReducer = (
         }
 
       case 'UPVOTE_ARTICLE_FUFILLED':
+
+        const saved = state.saved.map(article => {
+          if (article.id === action.payload.id ) {
+            return action.payload
+          } else {
+            return article
+          }
+
+        })
+        
+        //find a way to update state.saved array to replace the new object from payload with the one that is old in state.saved
         return {
           ...state,
-          saved: action.payload,
+          saved,
         }
 
       default:
