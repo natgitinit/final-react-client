@@ -4,19 +4,6 @@ import { Card } from 'semantic-ui-react';
 
 class Saved extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     upVoteCount: 0,
-  //   };
-  //   this.handleUpVote = this.handleUpVote.bind(this);
-  // }
-  //
-  // handleUpVote = () => {
-  //   this.setState({
-  //     upVoteCount: ++this.state.upVoteCount,
-  //   })
-  // }
 
   handleUpVote(params) {
     this.props.upVote(params)
