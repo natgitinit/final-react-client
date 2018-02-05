@@ -40,7 +40,7 @@ class ArticleCard extends Component {
           </Card>
         )
       } else {
-        return null; 
+        return
       }
     })
   }

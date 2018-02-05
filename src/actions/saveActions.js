@@ -73,7 +73,7 @@ export function upVote(article) {
     .then(jsonObject => {
       dispatch({
         type: 'UPVOTE_ARTICLE_FUFILLED',
-        
+
         payload: jsonObject
       })
     })

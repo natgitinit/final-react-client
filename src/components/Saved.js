@@ -61,7 +61,6 @@ class Saved extends Component {
 
           <button className="ui red button" onClick={() => this.handleUpVote(article)}> Upvotes: {article.upvote_count}</button>
 
-    
         </Card>
       )
     })
@@ -82,6 +81,4 @@ class Saved extends Component {
 
 export default Saved;
 
-// <div key = {index}>
-// <button className='ui red button' onClick={(index) => this.handleUpVote(index)} target='_blank'>{this.state.upVoteCount} </button>
-// </div>
+  // <button className='ui red button' onClick={() => this.handleUpVote(index)} target='_blank'>{this.state.upVoteCount} </button>

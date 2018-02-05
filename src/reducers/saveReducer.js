@@ -31,7 +31,6 @@ const saveReducer = (
         }
 
       case 'UPVOTE_ARTICLE_FUFILLED':
-      // debugger; 
         return {
           ...state,
           saved: action.payload,
