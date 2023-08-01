@@ -10,7 +10,7 @@ export function fetchingArticles() {
 
 export function fetchedArticles() {
   return (dispatch) => {
-    return fetch(`https://api.nytimes.com/svc/topstories/v2/arts.json?api-key=${API_KEY}`)
+    return fetch(`https://api.nytimes.com/svc/books/v3/reviews.json?api-key=${API_KEY}`)
     .then(resp => resp.json())
     .then(jsonObject => {
       dispatch({
